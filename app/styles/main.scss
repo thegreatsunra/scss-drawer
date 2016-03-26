@@ -13,6 +13,8 @@ $mq-breakpoints: (
   xl: 1200px
 );
 @import "../bower_components/sass-mq/_mq";
+$fa-font-path: "../bower_components/font-awesome/fonts/";
+@import "../bower_components/font-awesome/scss/font-awesome.scss";
 
 // #MIXINS
 
