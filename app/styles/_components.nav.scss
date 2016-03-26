@@ -1,7 +1,8 @@
 // _components.nav.scss
 
 .c-nav {
-
+  overflow: auto;
+  height: 100%;
 }
 
 .c-nav__item {
