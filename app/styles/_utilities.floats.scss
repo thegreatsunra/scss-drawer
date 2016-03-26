@@ -1,0 +1,29 @@
+// _utilities.floats.scss
+
+.u-float-left {
+  float: left;
+}
+
+.u-float-right {
+  float: right;
+}
+
+.u-clear-left {
+  clear: left;
+}
+
+.u-clear-right {
+  clear: right;
+}
+
+.u-clear-both {
+  clear: both;
+}
+
+.u-clearfix {
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
