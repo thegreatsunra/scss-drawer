@@ -4,6 +4,15 @@
 
 }
 
+
+@include mq($from: md, $until: lg) {
+  .c-drawer--narrow\@md {
+    .c-badge {
+      display: none;
+    }
+  }
+}
+
 .c-badge--primary {
 
 }

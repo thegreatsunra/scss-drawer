@@ -1,6 +1,8 @@
 // _components.drawer.scss
 
 $drawer-width: 200px;
+$drawer-width-narrow: 60px;
+
 .c-drawer {
   z-index: 3;
   height: 100%;
@@ -10,10 +12,18 @@ $drawer-width: 200px;
   top: 0;
   left: 0;
   transition: all 500ms ease-in-out;
+  border-right: 1px solid #ccc;
 }
 
 .c-drawer--hidden {
   left: -$drawer-width;
+}
+
+@include mq($from: md) {
+  .c-drawer--narrow\@md {
+    left: 0;
+    width: $drawer-width-narrow;
+  }
 }
 
 .c-toggle {
@@ -33,3 +43,10 @@ $drawer-width: 200px;
 
   }
 }
+
+@include mq($from: md) {
+  .c-toggle--hidden\@md {
+    display: none;
+  }
+}
+

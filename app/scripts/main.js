@@ -13,6 +13,7 @@ function toggleDrawer(event) {
   event.preventDefault();
   toggleClass('.js-c-drawer', 'c-drawer--hidden');
   toggleClass('.js-c-overlay', 'c-overlay--hidden');
+  toggleClass('.js-c-drawer', 'c-drawer--narrow@md');
 }
 
 // add event listener to drawer toggle controls

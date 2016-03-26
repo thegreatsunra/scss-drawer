@@ -15,4 +15,10 @@
   float: left;
 }
 
+@include mq($from: md) {
+  .c-header--wide\@md {
+    margin-left: $drawer-width-narrow;
+  }
+}
+
 }

@@ -6,3 +6,10 @@
   height: 100%;
   width: 100%;
 }
+
+@include mq($from: md) {
+  .c-view--wide\@md {
+    margin-left: $drawer-width-narrow;
+  }
+}
+

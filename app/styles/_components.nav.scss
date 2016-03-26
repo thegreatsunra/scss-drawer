@@ -22,6 +22,17 @@
 
 }
 
+@include mq($from: md, $until: lg) {
+  .c-drawer--narrow\@md {
+    .c-nav__text {
+      display: none;
+    }
+    .c-subnav {
+      display: none;
+    }
+  }
+}
+
 .c-nav__divider {
 
 }
