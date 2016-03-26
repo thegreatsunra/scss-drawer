@@ -1,94 +1,18 @@
 // bower:scss
 // endbower
 
-@import "../bower_components/normalize-css/normalize";
-
-.c-toggle {
-
-}
-
-.c-toggle__link {
-
-}
-
-.c-toggle__icon {
-
-}
-
-.c-drawer {
-
-}
-
-.c-nav {
-
-}
-
-.c-nav__item {
-
-}
-
-.c-nav__link {
-
-}
-
-.c-nav__icon {
-
-}
-
-.c-nav__text {
-
-}
-
-.c-nav__divider {
 // #SETTINGS
 
-}
-
-.c-subnav {
-
-}
-
-.c-subnav__item {
-
-}
-
-.c-subnav__link {
-
-}
-
-.c-subnav__icon {
-
-}
-
-.c-subnav__text {
-
-}
-
-.c-subnav__divider {
-
-}
-
-.c-badge {
-
-}
-
-.c-badge--primary {
-
-}
-
-.c-badge--important {
-
-}
 // #ELEMENTS
+@import "../bower_components/normalize-css/normalize";
 
-.c-badge__icon {
 // #OBJECTS
 
-}
 // #COMPONENTS
+@import "components.drawer";
+@import "components.nav";
+@import "components.badges";
 
-.c-badge__link {
 // #UTILITIES
 
-}
 // #OVERRIDES
