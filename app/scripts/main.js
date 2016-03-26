@@ -1,7 +1,6 @@
 'use strict';
 
-console.log('\'Allo \'Allo!');
-
+// simple function for toggling classes
 function toggleClass(targetName, className) {
   var target = document.querySelector(targetName);
   if (target) {
@@ -9,14 +8,17 @@ function toggleClass(targetName, className) {
   }
 }
 
-var els = document.querySelectorAll('.js-c-toggle__link');
+// toggle drawer-specific classes when drawer toggle is fired
+function toggleDrawer(event) {
+  event.preventDefault();
+  toggleClass('.js-c-drawer', 'c-drawer--hidden');
+  toggleClass('.js-c-overlay', 'c-overlay--hidden');
+}
 
-if (els) {
-  for (var i = els.length - 1; i >= 0; i--) {
-    els[i].addEventListener('click', function(e) {
-      e.preventDefault();
-      toggleClass('.js-c-drawer', 'c-drawer--hidden');
-      toggleClass('.js-c-overlay', 'c-overlay--hidden');
-    });
+// add event listener to drawer toggle controls
+var drawerControls = document.querySelectorAll('.js-c-toggle__link');
+if (drawerControls) {
+  for (var i = drawerControls.length - 1; i >= 0; i--) {
+    drawerControls[i].addEventListener('click', toggleDrawer)
   }
 }
