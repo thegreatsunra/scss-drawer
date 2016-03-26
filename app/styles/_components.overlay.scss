@@ -8,8 +8,10 @@
   top: 0;
   left: 0;
   background-color: rgba(0, 0, 0, .8);
+  transition: background-color 500ms ease-in;
+  pointer-events: none;
 }
 
 .c-overlay--hidden {
-  display: none;
+  background-color: transparent;
 }
