@@ -26,6 +26,13 @@ $drawer-width-narrow: 60px;
   }
 }
 
+@include mq($from: lg) {
+  .c-drawer--wide\@lg {
+    left: 0;
+    width: $drawer-width;
+  }
+}
+
 .c-toggle {
   &--header {
     float: left;
@@ -50,3 +57,8 @@ $drawer-width-narrow: 60px;
   }
 }
 
+@include mq($from: lg) {
+  .c-toggle--invisible\@lg {
+    visibility: hidden;
+  }
+}

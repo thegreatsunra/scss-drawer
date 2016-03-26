@@ -21,4 +21,8 @@
   }
 }
 
+@include mq($from: lg) {
+  .c-header--narrow\@lg {
+    margin-left: $drawer-width;
+  }
 }

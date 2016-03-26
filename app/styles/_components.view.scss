@@ -13,3 +13,8 @@
   }
 }
 
+@include mq($from: lg) {
+  .c-view--narrow\@lg {
+    margin-left: $drawer-width;
+  }
+}
