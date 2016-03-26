@@ -2,7 +2,7 @@
 
 // simple function for toggling classes
 function toggleClass(targetName, className) {
-  var target = document.querySelector(targetName);
+  var target = document.getElementsByClassName(targetName)[0];
   if (target) {
     target.classList.toggle(className);
   }
@@ -11,15 +11,15 @@ function toggleClass(targetName, className) {
 // toggle drawer-specific classes when drawer toggle is fired
 function toggleDrawer(event) {
   event.preventDefault();
-  toggleClass('.js-c-drawer', 'c-drawer--hidden');
-  toggleClass('.js-c-overlay', 'c-overlay--hidden');
-  toggleClass('.js-c-drawer', 'c-drawer--narrow@md');
+  toggleClass('js-c-drawer', 'c-drawer--hidden');
+  toggleClass('js-c-overlay', 'c-overlay--hidden');
+  toggleClass('js-c-drawer', 'c-drawer--narrow@md');
 }
 
 // add event listener to drawer toggle controls
-var drawerControls = document.querySelectorAll('.js-c-toggle__link');
+var drawerControls = document.getElementsByClassName('js-c-toggle__link');
 if (drawerControls) {
   for (var i = drawerControls.length - 1; i >= 0; i--) {
-    drawerControls[i].addEventListener('click', toggleDrawer)
+    drawerControls[i].addEventListener('click', toggleDrawer);
   }
 }
