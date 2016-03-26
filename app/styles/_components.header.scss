@@ -1,9 +1,15 @@
 // _components.header.scss
 
 .c-header {
-
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 60px;
+  border-bottom: 1px solid #ccc;
+  background-color: #eee;
+  width: 100%;
 }
 
 .c-header__title {
-
+  margin-top: 0;
 }
