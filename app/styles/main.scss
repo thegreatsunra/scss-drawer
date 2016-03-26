@@ -21,10 +21,11 @@ $fa-font-path: "../bower_components/font-awesome/fonts/";
 // #RESETS
 @import "../bower_components/normalize-css/normalize";
 @import "resets.box-sizing";
-@import "resets.html";
 
 // #ELEMENTS
 @import "elements.links";
+@import "elements.html";
+
 
 // #OBJECTS
 @import "objects.lists";

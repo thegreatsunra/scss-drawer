@@ -1,0 +1,17 @@
+// _elements.html.scss
+
+// prevent scroll bars on <html> (scroll bars are used on the view component)
+html {
+  height: 100%;
+  width: 100%;
+  min-height: 100%;
+  overflow: hidden;
+}
+
+// prevent scroll bars <body> (scroll bars are used on the view component)
+body {
+  height: 100%;
+  width: 100%;
+  min-height: 100%;
+  overflow: hidden;
+}
