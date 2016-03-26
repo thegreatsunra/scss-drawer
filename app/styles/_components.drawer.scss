@@ -9,6 +9,7 @@ $drawer-width: 200px;
   width: $drawer-width;
   top: 0;
   left: 0;
+  transition: all 500ms ease-in-out;
 }
 
 .c-drawer--hidden {

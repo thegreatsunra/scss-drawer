@@ -10,7 +10,8 @@
 }
 
 .c-nav__link {
-
+  display: block;
+  padding: 10px 0 10px 10px;
 }
 
 .c-nav__icon {
@@ -34,7 +35,9 @@
 }
 
 .c-subnav__link {
-
+  display: block;
+  font-size: 13px;
+  padding: 5px 0 5px 30px;
 }
 
 .c-subnav__icon {
