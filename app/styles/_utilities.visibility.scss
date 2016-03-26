@@ -1,0 +1,15 @@
+// _utilities.visibility.scss
+
+.u-is-hidden {
+  display: none;
+}
+
+$breakpoints: sm md lg xl;
+
+@each $breakpoint in $breakpoints {
+  @include mq($until: #{$breakpoint}) {
+    .u-is-hidden-until\@#{$breakpoint} {
+      display: none;
+    }
+  }
+}
