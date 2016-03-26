@@ -15,3 +15,9 @@
 .c-overlay--hidden {
   background-color: transparent;
 }
+
+@include mq($from: lg) {
+  .c-overlay--hidden\@lg {
+    background-color: transparent;
+  }
+}

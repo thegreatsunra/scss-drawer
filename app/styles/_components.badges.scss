@@ -5,8 +5,21 @@
 }
 
 
-@include mq($from: md, $until: lg) {
+@include mq($from: md) {
   .c-drawer--narrow\@md {
+    .c-badge {
+      display: none;
+    }
+  }
+}
+
+@include mq($from: lg) {
+  .c-drawer--wide\@lg {
+    .c-badge {
+      display: inline-block;
+    }
+  }
+  .c-drawer--narrow\@lg {
     .c-badge {
       display: none;
     }

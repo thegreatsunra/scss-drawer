@@ -22,7 +22,7 @@
 
 }
 
-@include mq($from: md, $until: lg) {
+@include mq($from: md) {
   .c-drawer--narrow\@md {
     .c-nav__text {
       display: none;
@@ -33,6 +33,24 @@
   }
 }
 
+@include mq($from: lg) {
+  .c-drawer--wide\@lg {
+    .c-nav__text {
+      display: inline;
+    }
+    .c-subnav {
+      display: block;
+    }
+  }
+  .c-drawer--narrow\@lg {
+    .c-nav__text {
+      display: none;
+    }
+    .c-subnav {
+      display: none;
+    }
+  }
+}
 
 .c-nav__divider {
   border-bottom: 1px solid #ccc;

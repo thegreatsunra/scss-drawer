@@ -31,6 +31,10 @@ $drawer-width-narrow: 60px;
     left: 0;
     width: $drawer-width;
   }
+  .c-drawer--narrow\@lg {
+    left: 0;
+    width: $drawer-width-narrow;
+  }
 }
 
 .c-toggle {
@@ -54,11 +58,5 @@ $drawer-width-narrow: 60px;
 @include mq($from: md) {
   .c-toggle--hidden\@md {
     display: none;
-  }
-}
-
-@include mq($from: lg) {
-  .c-toggle--invisible\@lg {
-    visibility: hidden;
   }
 }
