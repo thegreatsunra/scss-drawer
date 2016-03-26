@@ -1,19 +1,22 @@
+'use strict';
+
 console.log('\'Allo \'Allo!');
 
-var els;
+function toggleClass(targetName, className) {
+  var target = document.querySelector(targetName);
+  if (target) {
+    target.classList.toggle(className);
+  }
+}
 
-if (els = document.querySelectorAll(".c-toggle__link")) {
+var els = document.querySelectorAll('.js-c-toggle__link');
+
+if (els) {
   for (var i = els.length - 1; i >= 0; i--) {
     els[i].addEventListener('click', function(e) {
       e.preventDefault();
-      var target;
-      if (target = document.querySelector(".c-drawer")) {
-        target.classList.toggle("c-drawer--hidden");
-      }
-      var overlay;
-      if (target = document.querySelector(".c-overlay")) {
-        target.classList.toggle("c-overlay--hidden");
-      }
-    })
+      toggleClass('.js-c-drawer', 'c-drawer--hidden');
+      toggleClass('.js-c-overlay', 'c-overlay--hidden');
+    });
   }
 }
