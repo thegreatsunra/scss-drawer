@@ -127,6 +127,7 @@ function handleMediaQuery(mediaQuery) {
     changeClasses('js-c-view', 'add', 'c-view--narrow@lg');
     changeClasses('js-c-drawer', 'add', 'c-drawer--wide@lg');
     changeClasses('js-c-drawer', 'remove', 'c-drawer--narrow@lg');
+    docCookies.setItem('drawer', 'wide', 86400, '/');
     console.log('the drawer was collapsed and is now expanded');
   } else {
     // the window just crossed into the tablet breakpoint
@@ -139,6 +140,7 @@ function handleMediaQuery(mediaQuery) {
       changeClasses('js-c-drawer', 'remove', 'c-drawer--wide@lg');
       changeClasses('js-c-drawer', 'add', 'c-drawer--narrow@lg c-drawer--narrow@md c-drawer--hidden-until@md');
       changeClasses('js-c-overlay', 'add', 'c-overlay--hidden');
+      docCookies.setItem('drawer', 'narrow', 86400, '/');
       console.log('the drawer was expanded and is now collapsed');
     }
     else if (document.getElementsByClassName('js-c-drawer')[0] === document.getElementsByClassName('c-drawer--narrow@lg')[0]) {
@@ -150,6 +152,7 @@ function handleMediaQuery(mediaQuery) {
       changeClasses('js-c-drawer', 'remove', 'c-drawer--wide@lg');
       changeClasses('js-c-drawer', 'add', 'c-drawer--narrow@lg c-drawer--narrow@md c-drawer--hidden-until@md');
       changeClasses('js-c-overlay', 'add', 'c-overlay--hidden');
+      docCookies.setItem('drawer', 'narrow', 86400, '/');
       console.log('the drawer was collapsed and is still collapsed');
     }
   }
