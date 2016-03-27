@@ -4,6 +4,8 @@
   margin-top: 50px;
   overflow: auto;
   height: 100%;
+  transition: all 500ms ease-in-out;
+  transition-delay: 100ms;
 }
 
 @include mq($from: md) {

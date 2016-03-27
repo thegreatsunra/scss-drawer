@@ -13,6 +13,7 @@ $drawer-width-narrow: 60px;
   left: 0;
   transition: all 500ms ease-in-out;
   border-right: 1px solid #ccc;
+  transition-delay: 100ms; // prevent jump when transitioning from collapsed@lg to collapsed@md
 }
 
 @include mq($until: md) {
