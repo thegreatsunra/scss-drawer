@@ -193,9 +193,8 @@ if ((typeof drawerControls !== 'undefined') && (drawerControls.length > 0)) {
 // add an event listener for when the DOM content is ready
 document.addEventListener('DOMContentLoaded', function(event) {
   // check if the "narrow" cookie is set and if we're currently at the desktop breakpoint
-  if (docCookies.getItem('drawer') === 'narrow') && (lgBreakpoint.matches) {
-      // toggle the drawer closed
-      toggleDrawer(event);
-    }
+  if ((docCookies.getItem('drawer') === 'narrow') && (lgBreakpoint.matches)) {
+    // toggle the drawer closed
+    toggleDrawer(event);
   }
 });
