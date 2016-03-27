@@ -85,7 +85,6 @@ function changeClasses(targetClassName, changeType, classNamesToChange) {
     }
     else if (classNamesToChange) {
       // there's just one class name, so just go ahead and apply it
-      target.classList.toggle(classNamesToChange);
       if (changeType === 'toggle') {
         target.classList.toggle(classNamesToChange);
       }
@@ -106,18 +105,17 @@ function toggleDrawer(event) {
   changeClasses('js-c-overlay', 'toggle', 'c-overlay--hidden');
   changeClasses('js-c-header', 'toggle', 'c-header--narrow@lg c-header--wide@lg');
   changeClasses('js-c-view', 'toggle', 'c-view--narrow@lg c-view--wide@lg');
-  if ((document.getElementsByClassName('c-drawer--narrow@lg') === undefined) || (document.getElementsByClassName('c-drawer--narrow@lg').length === 0)) {
     // the drawer is narrow; set the cookie
+  if ((typeof document.getElementsByClassName('c-drawer--wide@lg') !== 'undefined') && (document.getElementsByClassName('c-drawer--wide@lg').length > 0)) {
     docCookies.setItem('drawer', 'wide', 86400, '/');
-    console.log(document.cookie);
-  } else if ((document.getElementsByClassName('c-drawer--wide@lg') === undefined) || (document.getElementsByClassName('c-drawer--wide@lg').length === 0)) {
+  }
+  else if ((typeof document.getElementsByClassName('c-drawer--narrow@lg') !== 'undefined') && (document.getElementsByClassName('c-drawer--narrow@lg').length > 0)) {
     docCookies.setItem('drawer', 'narrow', 86400, '/');
-    console.log(document.cookie);
   }
 }
 
 // do something when the window width transitions between the desktop breakpoint
-function handleMediaQuery(mediaQuery) {
+function changeDrawerOnMediaQuery(mediaQuery) {
   if (mediaQuery.matches) {
     // the window just crossed into the desktop breakpoint
     // the drawer is collapsed; expand it as the window gets wider
@@ -128,7 +126,6 @@ function handleMediaQuery(mediaQuery) {
     changeClasses('js-c-drawer', 'add', 'c-drawer--wide@lg');
     changeClasses('js-c-drawer', 'remove', 'c-drawer--narrow@lg');
     docCookies.setItem('drawer', 'wide', 86400, '/');
-    console.log('the drawer was collapsed and is now expanded');
   } else {
     // the window just crossed into the tablet breakpoint
     if (document.getElementsByClassName('js-c-drawer')[0] === document.getElementsByClassName('c-drawer--wide@lg')[0]) {
@@ -141,7 +138,6 @@ function handleMediaQuery(mediaQuery) {
       changeClasses('js-c-drawer', 'add', 'c-drawer--narrow@lg c-drawer--narrow@md c-drawer--hidden-until@md');
       changeClasses('js-c-overlay', 'add', 'c-overlay--hidden');
       docCookies.setItem('drawer', 'narrow', 86400, '/');
-      console.log('the drawer was expanded and is now collapsed');
     }
     else if (document.getElementsByClassName('js-c-drawer')[0] === document.getElementsByClassName('c-drawer--narrow@lg')[0]) {
       // the drawer is collapsed; keep it collapsed as the window gets narrower
@@ -153,29 +149,26 @@ function handleMediaQuery(mediaQuery) {
       changeClasses('js-c-drawer', 'add', 'c-drawer--narrow@lg c-drawer--narrow@md c-drawer--hidden-until@md');
       changeClasses('js-c-overlay', 'add', 'c-overlay--hidden');
       docCookies.setItem('drawer', 'narrow', 86400, '/');
-      console.log('the drawer was collapsed and is still collapsed');
     }
   }
 }
 
 // add event listener for desktop breakpoint
 var lgBreakpoint = window.matchMedia('(min-width: 1024px)');
-lgBreakpoint.addListener(handleMediaQuery);
+lgBreakpoint.addListener(changeDrawerOnMediaQuery);
 
 // add event listener to drawer toggle controls
 var drawerControls = document.getElementsByClassName('js-c-toggle__link');
-if (drawerControls) {
+if ((typeof drawerControls !== 'undefined') && (drawerControls.length > 0)) {
   for (var i = drawerControls.length - 1; i >= 0; i--) {
     drawerControls[i].addEventListener('click', toggleDrawer);
   }
 }
 
 document.addEventListener('DOMContentLoaded', function(event) {
-  console.log(docCookies.getItem('drawer'));
-  if (docCookies.getItem('drawer') === 'narrow') {
     // drawer is supposed to be narrow, so make it so
-    if(window.innerWidth > 1024) {
-          toggleDrawer(event);
-        }
+  if (docCookies.getItem('drawer') === 'narrow') && (lgBreakpoint.matches) {
+      toggleDrawer(event);
+    }
   }
 });
