@@ -169,3 +169,13 @@ if (drawerControls) {
     drawerControls[i].addEventListener('click', toggleDrawer);
   }
 }
+
+document.addEventListener('DOMContentLoaded', function(event) {
+  console.log(docCookies.getItem('drawer'));
+  if (docCookies.getItem('drawer') === 'narrow') {
+    // drawer is supposed to be narrow, so make it so
+    if(window.innerWidth > 1024) {
+          toggleDrawer(event);
+        }
+  }
+});
