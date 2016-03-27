@@ -106,6 +106,14 @@ function toggleDrawer(event) {
   changeClasses('js-c-overlay', 'toggle', 'c-overlay--hidden');
   changeClasses('js-c-header', 'toggle', 'c-header--narrow@lg c-header--wide@lg');
   changeClasses('js-c-view', 'toggle', 'c-view--narrow@lg c-view--wide@lg');
+  if ((document.getElementsByClassName('c-drawer--narrow@lg') === undefined) || (document.getElementsByClassName('c-drawer--narrow@lg').length === 0)) {
+    // the drawer is narrow; set the cookie
+    docCookies.setItem('drawer', 'wide', 86400, '/');
+    console.log(document.cookie);
+  } else if ((document.getElementsByClassName('c-drawer--wide@lg') === undefined) || (document.getElementsByClassName('c-drawer--wide@lg').length === 0)) {
+    docCookies.setItem('drawer', 'narrow', 86400, '/');
+    console.log(document.cookie);
+  }
 }
 
 // do something when the window width transitions between the desktop breakpoint
