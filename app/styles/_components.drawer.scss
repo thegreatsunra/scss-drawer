@@ -15,8 +15,10 @@ $drawer-width-narrow: 60px;
   border-right: 1px solid #ccc;
 }
 
-.c-drawer--hidden {
-  left: -$drawer-width;
+@include mq($until: md) {
+  .c-drawer--hidden-until\@md {
+    left: -$drawer-width;
+  }
 }
 
 @include mq($from: md) {

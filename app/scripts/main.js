@@ -38,7 +38,7 @@ function changeClasses(targetClassName, classNamesToChange, changeType) {
 // toggle drawer-specific classes when drawer toggle is fired
 function toggleDrawer(event) {
   event.preventDefault();
-  changeClasses('js-c-drawer', 'c-drawer--hidden c-drawer--narrow@md c-drawer--wide@lg c-drawer--narrow@lg', 'toggle');
+  changeClasses('js-c-drawer', 'c-drawer--hidden-until@md c-drawer--narrow@md c-drawer--wide@lg c-drawer--narrow@lg', 'toggle');
   changeClasses('js-c-overlay', 'c-overlay--hidden', 'toggle');
   changeClasses('js-c-header', 'c-header--narrow@lg c-header--wide@lg', 'toggle');
   changeClasses('js-c-view', 'c-view--narrow@lg c-view--wide@lg', 'toggle');
@@ -56,27 +56,40 @@ if (drawerControls) {
 function handleMediaQuery(mediaQuery) {
   if (mediaQuery.matches) {
     // the window just crossed into the desktop breakpoint
-    if (document.getElementsByClassName('js-c-drawer')[0] === document.getElementsByClassName('c-drawer--narrow@md')[0]) {
-      // the drawer is collapsed; expand it as the window gets wider
-      changeClasses('js-c-drawer', 'c-drawer--wide@lg', 'add');
-      changeClasses('js-c-drawer', 'c-drawer--narrow@lg', 'remove');
-      console.log('the drawer was collapsed and is now expanded');
-    } else if (document.getElementsByClassName('js-c-drawer')[0] === document.getElementsByClassName('c-drawer--wide@md')[0]) {
-      // the drawer is expanded; keep it expanded as the window gets wider
-      changeClasses('js-c-drawer', 'c-drawer--wide@lg', 'add');
-      changeClasses('js-c-drawer', 'c-drawer--narrow@lg c-drawer--narrow@md', 'remove');
-      console.log('the drawer was expanded and is still expanded');
-    }
+    // the drawer is collapsed; expand it as the window gets wider
+    changeClasses('js-c-header', 'c-header--wide@lg', 'remove');
+    changeClasses('js-c-header', 'c-header--narrow@lg', 'add');
+    changeClasses('js-c-view', 'c-view--wide@lg', 'remove');
+    changeClasses('js-c-view', 'c-view--narrow@lg', 'add');
+    changeClasses('js-c-drawer', 'c-drawer--wide@lg', 'add');
+    changeClasses('js-c-drawer', 'c-drawer--narrow@lg', 'remove');
+    console.log('the drawer was collapsed and is now expanded');
   } else {
     // the window just crossed into the tablet breakpoint
     if (document.getElementsByClassName('js-c-drawer')[0] === document.getElementsByClassName('c-drawer--wide@lg')[0]) {
       // the drawer is expanded; collapse it as the window gets narrower
-      changeClasses('js-c-drawer', 'c-drawer--hidden', 'add');
+      changeClasses('js-c-header', 'c-header--wide@lg', 'add');
+      changeClasses('js-c-header', 'c-header--narrow@lg', 'remove');
+      changeClasses('js-c-view', 'c-view--wide@lg', 'add');
+      changeClasses('js-c-view', 'c-view--narrow@lg', 'remove');
+      changeClasses('js-c-drawer', 'c-drawer--wide@lg', 'remove');
+      changeClasses('js-c-drawer', 'c-drawer--narrow@lg', 'add');
       changeClasses('js-c-drawer', 'c-drawer--narrow@md', 'add');
+      changeClasses('js-c-drawer', 'c-drawer--hidden-until@md', 'add');
+      changeClasses('js-c-overlay', 'c-overlay--hidden', 'add');
       console.log('the drawer was expanded and is now collapsed');
     }
     else if (document.getElementsByClassName('js-c-drawer')[0] === document.getElementsByClassName('c-drawer--narrow@lg')[0]) {
       // the drawer is collapsed; keep it collapsed as the window gets narrower
+      changeClasses('js-c-header', 'c-header--wide@lg', 'add');
+      changeClasses('js-c-header', 'c-header--narrow@lg', 'remove');
+      changeClasses('js-c-view', 'c-view--wide@lg', 'add');
+      changeClasses('js-c-view', 'c-view--narrow@lg', 'remove');
+      changeClasses('js-c-drawer', 'c-drawer--wide@lg', 'remove');
+      changeClasses('js-c-drawer', 'c-drawer--narrow@lg', 'add');
+      changeClasses('js-c-drawer', 'c-drawer--narrow@md', 'add');
+      changeClasses('js-c-drawer', 'c-drawer--hidden-until@md', 'add');
+      changeClasses('js-c-overlay', 'c-overlay--hidden', 'add');
       console.log('the drawer was collapsed and is still collapsed');
     }
   }
