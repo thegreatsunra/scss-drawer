@@ -66,31 +66,41 @@ var docCookies = {
 
 // toggle classes
 function changeClasses(targetClassName, changeType, classNamesToChange) {
+  // find the first element that matches targetClassName
   var target = document.getElementsByClassName(targetClassName)[0];
+  // if an element matches, work with it
   if (target) {
+    // if there are multiple classNamesToChange delimited by spaces, work with them
     if (classNamesToChange.indexOf(' ')) {
-      // there are multiple class names separated by spaces, so let's split and iterate through them
+      // split multiple classNamesToChange into an array
       var classes = classNamesToChange.split(' ');
+      // iterate through the array of classes
       for (var j = classes.length - 1; j >= 0; j--) {
+        // if we're supposed to toggle the classNamesToChange on the target element, do it
         if (changeType === 'toggle') {
           target.classList.toggle(classes[j]);
         }
+        // if we're supposed to add the classNamesToChange to the target element, do it
         else if (changeType === 'add') {
           target.classList.add(classes[j]);
         }
+        // if we're supposed to remove the classNamesToChange from the target element, do it
         else if (changeType === 'remove') {
           target.classList.remove(classes[j]);
         }
       }
     }
+    // if there's just one class name, work with it
     else if (classNamesToChange) {
-      // there's just one class name, so just go ahead and apply it
+      // if we're supposed to toggle the class name on the target element, do it
       if (changeType === 'toggle') {
         target.classList.toggle(classNamesToChange);
       }
+      // if we're supposed to add the class name to the target element, do it
       else if (changeType === 'add') {
         target.classList.add(classNamesToChange);
       }
+      // if we're supposed to remove the class name from the target element, do it
       else if (changeType === 'remove') {
         target.classList.remove(classNamesToChange);
       }
@@ -100,16 +110,21 @@ function changeClasses(targetClassName, changeType, classNamesToChange) {
 
 // toggle drawer-specific classes when drawer toggle is fired
 function toggleDrawer(event) {
+  // prevent default behavior of event
   event.preventDefault();
+  // toggle the appropriate classes for each target element
   changeClasses('js-c-drawer', 'toggle', 'c-drawer--hidden-until@md c-drawer--narrow@md c-drawer--wide@lg c-drawer--narrow@lg');
   changeClasses('js-c-overlay', 'toggle', 'c-overlay--hidden');
   changeClasses('js-c-header', 'toggle', 'c-header--narrow@lg c-header--wide@lg');
   changeClasses('js-c-view', 'toggle', 'c-view--narrow@lg c-view--wide@lg');
-    // the drawer is narrow; set the cookie
+  // if the drawer is wide, set a cookie indicating the drawer is wide
   if ((typeof document.getElementsByClassName('c-drawer--wide@lg') !== 'undefined') && (document.getElementsByClassName('c-drawer--wide@lg').length > 0)) {
+    // set a cookie with a 24-hour expiration indicating the drawer is wide
     docCookies.setItem('drawer', 'wide', 86400, '/');
   }
+  // if the drawer is narrow, set a cookie indicating the drawer is narrow
   else if ((typeof document.getElementsByClassName('c-drawer--narrow@lg') !== 'undefined') && (document.getElementsByClassName('c-drawer--narrow@lg').length > 0)) {
+    // set a cookie with a 24-hour expiration indicating the drawer is narrow
     docCookies.setItem('drawer', 'narrow', 86400, '/');
   }
 }
@@ -118,18 +133,21 @@ function toggleDrawer(event) {
 function changeDrawerOnMediaQuery(mediaQuery) {
   if (mediaQuery.matches) {
     // the window just crossed into the desktop breakpoint
-    // the drawer is collapsed; expand it as the window gets wider
+    // the drawer is currently collapsed;
+    // expand the drawer now that the window just got wider
     changeClasses('js-c-header', 'remove', 'c-header--wide@lg');
     changeClasses('js-c-header', 'add', 'c-header--narrow@lg');
     changeClasses('js-c-view', 'remove', 'c-view--wide@lg');
     changeClasses('js-c-view', 'add', 'c-view--narrow@lg');
     changeClasses('js-c-drawer', 'add', 'c-drawer--wide@lg');
     changeClasses('js-c-drawer', 'remove', 'c-drawer--narrow@lg');
+    // set a cookie with a 24-hour expiration indicating the drawer is now wide
     docCookies.setItem('drawer', 'wide', 86400, '/');
   } else {
     // the window just crossed into the tablet breakpoint
     if (document.getElementsByClassName('js-c-drawer')[0] === document.getElementsByClassName('c-drawer--wide@lg')[0]) {
-      // the drawer is expanded; collapse it as the window gets narrower
+      // the drawer is currently expanded;
+      // collapse the drawer now that the window just got narrower
       changeClasses('js-c-header', 'add', 'c-header--wide@lg');
       changeClasses('js-c-header', 'remove', 'c-header--narrow@lg');
       changeClasses('js-c-view', 'add', 'c-view--wide@lg');
@@ -137,10 +155,12 @@ function changeDrawerOnMediaQuery(mediaQuery) {
       changeClasses('js-c-drawer', 'remove', 'c-drawer--wide@lg');
       changeClasses('js-c-drawer', 'add', 'c-drawer--narrow@lg c-drawer--narrow@md c-drawer--hidden-until@md');
       changeClasses('js-c-overlay', 'add', 'c-overlay--hidden');
+      // set a cookie with a 24-hour expiration indicating the drawer is now narrow
       docCookies.setItem('drawer', 'narrow', 86400, '/');
     }
     else if (document.getElementsByClassName('js-c-drawer')[0] === document.getElementsByClassName('c-drawer--narrow@lg')[0]) {
-      // the drawer is collapsed; keep it collapsed as the window gets narrower
+      // the drawer is currently collapsed;
+      // keep the drawer collapsed because the window just got narrower
       changeClasses('js-c-header', 'add', 'c-header--wide@lg');
       changeClasses('js-c-header', 'remove', 'c-header--narrow@lg');
       changeClasses('js-c-view', 'add', 'c-view--wide@lg');
@@ -148,26 +168,33 @@ function changeDrawerOnMediaQuery(mediaQuery) {
       changeClasses('js-c-drawer', 'remove', 'c-drawer--wide@lg');
       changeClasses('js-c-drawer', 'add', 'c-drawer--narrow@lg c-drawer--narrow@md c-drawer--hidden-until@md');
       changeClasses('js-c-overlay', 'add', 'c-overlay--hidden');
+      // set a cookie with a 24-hour expiration indicating the drawer is narrow
       docCookies.setItem('drawer', 'narrow', 86400, '/');
     }
   }
 }
 
-// add event listener for desktop breakpoint
+// define the large breakpoint media query
 var lgBreakpoint = window.matchMedia('(min-width: 1024px)');
+// add an event listener that fires changeDrawerOnMediaQuery when the large breakpoint media query is hit
 lgBreakpoint.addListener(changeDrawerOnMediaQuery);
 
-// add event listener to drawer toggle controls
+// add an event listener to the drawer toggle controls
+// get all drawer toggle links
 var drawerControls = document.getElementsByClassName('js-c-toggle__link');
+// if there are drawer controls, do something with them
 if ((typeof drawerControls !== 'undefined') && (drawerControls.length > 0)) {
+  // iterate through drawer controls and fire the toggleDrawer function when clicked
   for (var i = drawerControls.length - 1; i >= 0; i--) {
     drawerControls[i].addEventListener('click', toggleDrawer);
   }
 }
 
+// add an event listener for when the DOM content is ready
 document.addEventListener('DOMContentLoaded', function(event) {
-    // drawer is supposed to be narrow, so make it so
+  // check if the "narrow" cookie is set and if we're currently at the desktop breakpoint
   if (docCookies.getItem('drawer') === 'narrow') && (lgBreakpoint.matches) {
+      // toggle the drawer closed
       toggleDrawer(event);
     }
   }
