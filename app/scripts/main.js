@@ -73,9 +73,7 @@ function handleMediaQuery(mediaQuery) {
       changeClasses('js-c-view', 'c-view--wide@lg', 'add');
       changeClasses('js-c-view', 'c-view--narrow@lg', 'remove');
       changeClasses('js-c-drawer', 'c-drawer--wide@lg', 'remove');
-      changeClasses('js-c-drawer', 'c-drawer--narrow@lg', 'add');
-      changeClasses('js-c-drawer', 'c-drawer--narrow@md', 'add');
-      changeClasses('js-c-drawer', 'c-drawer--hidden-until@md', 'add');
+      changeClasses('js-c-drawer', 'c-drawer--narrow@lg c-drawer--narrow@md c-drawer--hidden-until@md', 'add');
       changeClasses('js-c-overlay', 'c-overlay--hidden', 'add');
       console.log('the drawer was expanded and is now collapsed');
     }
@@ -86,9 +84,7 @@ function handleMediaQuery(mediaQuery) {
       changeClasses('js-c-view', 'c-view--wide@lg', 'add');
       changeClasses('js-c-view', 'c-view--narrow@lg', 'remove');
       changeClasses('js-c-drawer', 'c-drawer--wide@lg', 'remove');
-      changeClasses('js-c-drawer', 'c-drawer--narrow@lg', 'add');
-      changeClasses('js-c-drawer', 'c-drawer--narrow@md', 'add');
-      changeClasses('js-c-drawer', 'c-drawer--hidden-until@md', 'add');
+      changeClasses('js-c-drawer', 'c-drawer--narrow@lg c-drawer--narrow@md c-drawer--hidden-until@md', 'add');
       changeClasses('js-c-overlay', 'c-overlay--hidden', 'add');
       console.log('the drawer was collapsed and is still collapsed');
     }
