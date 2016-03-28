@@ -6,15 +6,22 @@
 }
 
 .c-nav__item {
-
+  display: inline;
 }
 
 .c-nav__link {
   display: block;
+  clear: both;
   padding: 10px 0 10px 10px;
 }
 
 .c-nav__icon {
+  width: 20px;
+  margin-right: 5px;
+  display: block;
+  float: left;
+}
+
 
 }
 
@@ -53,21 +60,24 @@
 }
 
 .c-nav__divider {
+  clear: both;
+  display: block;
+  height: 10px;
   border-bottom: 1px solid #ccc;
 }
 
 .c-subnav {
-
+  clear: both;
 }
 
 .c-subnav__item {
-
+  display: inline;
 }
 
 .c-subnav__link {
   display: block;
   font-size: 13px;
-  padding: 5px 0 5px 30px;
+  padding: 5px 0 5px 40px;
 }
 
 .c-subnav__icon {
@@ -79,5 +89,9 @@
 }
 
 .c-subnav__divider {
+  clear: both;
+  display: block;
+  height: 5px;
+  margin-bottom: 5px;
   border-bottom: 1px solid #ccc;
 }
