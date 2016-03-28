@@ -1,9 +1,21 @@
 // _components.badges.scss
 
 .c-badge {
-
+  background-color: #000;
+  font-weight: bold;
+  color: #fff;
+  font-size: 12px;
+  padding: 2px 4px 2px 4px;
+  display: inline-block;
+  border-radius: 5px;
 }
 
+
+.c-drawer {
+  .c-badge {
+    float: right;
+  }
+}
 
 @include mq($from: md) {
   .c-drawer--narrow\@md {
@@ -39,11 +51,5 @@
 }
 
 .c-badge__link {
-  background-color: #000;
-  font-weight: bold;
-  color: #fff;
-  font-size: 12px;
-  padding: 4px;
-  display: inline-block;
-  border-radius: 5px;
+
 }
