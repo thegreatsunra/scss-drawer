@@ -19,49 +19,6 @@ $drawer-width-narrow: 60px;
 .c-drawer--visible {
   left: 0;
 }
-// ADD ANIMATIONS SOMEWHERE
-
-// animation-name: c-drawer--out;
-// animation-duration: 1s;
-// animation-delay: 0s;
-
-// @mixin c-drawer--hidden {
-//   left: -$drawer-width;
-// }
-
-// @mixin c-drawer--visible {
-//   left: 0;
-// }
-
-// @keyframes c-drawer--in {
-//   0% {
-//     @include c-drawer--hidden;
-//   }
-//   25% {
-//     @include c-drawer--visible;
-//   }
-//   100% {
-//     @include c-drawer--visible;
-//   }
-// }
-
-// @keyframes c-drawer--out {
-//   0% {
-//     @include c-drawer--visible;
-//   }
-//   75% {
-//     @include c-drawer--visible;
-//   }
-//   100% {
-//     @include c-drawer--hidden;
-//   }
-// }
-
-// @include mq($until: md) {
-//   .c-drawer--hidden-until\@md {
-//     @include c-drawer--hidden;
-//   }
-// }
 
 @include mq($from: md) {
   .c-drawer--visible\@md {
@@ -77,10 +34,6 @@ $drawer-width-narrow: 60px;
     left: 0;
     width: $drawer-width;
   }
-  // .c-drawer--narrow\@lg {
-  //   left: 0;
-  //   width: $drawer-width-narrow;
-  // }
 }
 
 .c-toggle {
