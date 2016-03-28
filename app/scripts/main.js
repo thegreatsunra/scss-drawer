@@ -115,11 +115,48 @@ function changeClasses(targetClassName, changeType, classNamesToChange) {
 function toggleDrawer(event) {
   // prevent default behavior of event
   event.preventDefault();
-  // toggle the appropriate classes for each target element
-  changeClasses('js-c-drawer', 'toggle', 'c-drawer--hidden-until@md c-drawer--narrow@md c-drawer--wide@lg c-drawer--narrow@lg');
-  changeClasses('js-c-overlay', 'toggle', 'c-overlay--hidden');
-  changeClasses('js-c-header', 'toggle', 'c-header--narrow@lg c-header--wide@lg');
-  changeClasses('js-c-view', 'toggle', 'c-view--narrow@lg c-view--wide@lg');
+  if (document.getElementsByClassName('js-c-drawer')[0] === document.getElementsByClassName('c-drawer--visible')[0]) {
+    // drawer is open on mobile and we want to close it
+    if (lgBreakpoint.matches) {
+      // drawer is open on mobile and we're at the desktop breakpoint and we want to make it narrow
+      changeClasses('js-c-drawer', 'remove', 'c-drawer--visible c-drawer--wide@lg');
+      changeClasses('js-c-drawer', 'add', 'c-drawer--narrow@md');
+      changeClasses('js-c-header', 'toggle', 'c-header--narrow@lg c-header--wide@lg');
+      changeClasses('js-c-view', 'toggle', 'c-view--narrow@lg c-view--wide@lg');
+      changeClasses('js-c-overlay', 'remove', 'c-overlay--hidden');
+      docCookies.setItem('drawer', 'narrow', 86400, '/');
+    }
+    else {
+      // drawer is open on mobile and we're not at the desktop breakpoint and we want to close it
+      changeClasses('js-c-drawer', 'remove', 'c-drawer--visible'); // remove default visible but keep @md visible on element which is confusing
+      changeClasses('js-c-drawer', 'add', 'c-drawer--narrow@md c-drawer--wide@lg');
+      changeClasses('js-c-overlay', 'add', 'c-overlay--hidden');
+      docCookies.setItem('drawer', 'wide', 86400, '/');
+    }
+  }
+  else {
+    // drawer is closed at mobile
+    if (lgBreakpoint.matches) {
+      // drawer is closed at mobile and we're at the desktop breakpoint and we want to toggle it
+      changeClasses('js-c-drawer', 'toggle', 'c-drawer--wide@lg');
+      changeClasses('js-c-header', 'toggle', 'c-header--narrow@lg c-header--wide@lg');
+      changeClasses('js-c-view', 'toggle', 'c-view--narrow@lg c-view--wide@lg');
+      if ((typeof document.getElementsByClassName('c-drawer--wide@lg') !== 'undefined') && (document.getElementsByClassName('c-drawer--wide@lg').length > 0)) {
+        // set a cookie with a 24-hour expiration indicating the drawer is wide
+        docCookies.setItem('drawer', 'wide', 86400, '/');
+      } else {
+        docCookies.setItem('drawer', 'narrow', 86400, '/');
+      }
+    }
+    else {
+      // drawer is closed at mobile and we're not at the desktop breakpoint and we want to open it
+      changeClasses('js-c-drawer', 'remove', 'c-drawer--narrow@md');
+      changeClasses('js-c-drawer', 'add', 'c-drawer--visible');
+      changeClasses('js-c-overlay', 'remove', 'c-overlay--hidden');
+      docCookies.setItem('drawer', 'wide', 86400, '/');
+    }
+
+  }
   // if the drawer is wide, set a cookie indicating the drawer is wide
   if ((typeof document.getElementsByClassName('c-drawer--wide@lg') !== 'undefined') && (document.getElementsByClassName('c-drawer--wide@lg').length > 0)) {
     // set a cookie with a 24-hour expiration indicating the drawer is wide
@@ -142,8 +179,9 @@ function changeDrawerOnMediaQuery(mediaQuery) {
     changeClasses('js-c-header', 'add', 'c-header--narrow@lg');
     changeClasses('js-c-view', 'remove', 'c-view--wide@lg');
     changeClasses('js-c-view', 'add', 'c-view--narrow@lg');
-    changeClasses('js-c-drawer', 'add', 'c-drawer--wide@lg');
-    changeClasses('js-c-drawer', 'remove', 'c-drawer--narrow@lg');
+    changeClasses('js-c-drawer', 'add', 'c-drawer--wide@lg c-drawer--narrow@md');
+    changeClasses('js-c-drawer', 'remove', 'c-drawer--visible');
+    changeClasses('js-c-overlay', 'add', 'c-overlay--hidden');
     // set a cookie with a 24-hour expiration indicating the drawer is now wide
     docCookies.setItem('drawer', 'wide', 86400, '/');
   } else {
@@ -151,35 +189,18 @@ function changeDrawerOnMediaQuery(mediaQuery) {
     if (document.getElementsByClassName('js-c-drawer')[0] === document.getElementsByClassName('c-drawer--wide@lg')[0]) {
       // the drawer is currently expanded;
       // collapse the drawer now that the window just got narrower
-      changeClasses('js-c-header', 'add', 'c-header--wide@lg');
-      changeClasses('js-c-header', 'remove', 'c-header--narrow@lg');
-      changeClasses('js-c-view', 'add', 'c-view--wide@lg');
-      changeClasses('js-c-view', 'remove', 'c-view--narrow@lg');
-      changeClasses('js-c-drawer', 'remove', 'c-drawer--wide@lg');
-      changeClasses('js-c-drawer', 'add', 'c-drawer--narrow@lg c-drawer--narrow@md c-drawer--hidden-until@md');
-      changeClasses('js-c-overlay', 'add', 'c-overlay--hidden');
       // set a cookie with a 24-hour expiration indicating the drawer is now narrow
       docCookies.setItem('drawer', 'narrow', 86400, '/');
     }
     else if (document.getElementsByClassName('js-c-drawer')[0] === document.getElementsByClassName('c-drawer--narrow@lg')[0]) {
       // the drawer is currently collapsed;
       // keep the drawer collapsed because the window just got narrower
-      changeClasses('js-c-header', 'add', 'c-header--wide@lg');
-      changeClasses('js-c-header', 'remove', 'c-header--narrow@lg');
-      changeClasses('js-c-view', 'add', 'c-view--wide@lg');
-      changeClasses('js-c-view', 'remove', 'c-view--narrow@lg');
-      changeClasses('js-c-drawer', 'remove', 'c-drawer--wide@lg');
-      changeClasses('js-c-drawer', 'add', 'c-drawer--narrow@lg c-drawer--narrow@md c-drawer--hidden-until@md');
-      changeClasses('js-c-overlay', 'add', 'c-overlay--hidden');
       // set a cookie with a 24-hour expiration indicating the drawer is narrow
       docCookies.setItem('drawer', 'narrow', 86400, '/');
     }
   }
 }
 
-// define the large breakpoint media query
-var lgBreakpoint = window.matchMedia('(min-width: 1024px)');
-// add an event listener that fires changeDrawerOnMediaQuery when the large breakpoint media query is hit
 lgBreakpoint.addListener(changeDrawerOnMediaQuery);
 
 // add an event listener to the drawer toggle controls
