@@ -67,42 +67,46 @@ var docCookies = {
 // toggle classes
 function changeClasses(targetClassName, changeType, classNamesToChange) {
   // find the first element that matches targetClassName
-  var target = document.getElementsByClassName(targetClassName)[0];
+  var targets = document.getElementsByClassName(targetClassName);
   // if an element matches, work with it
-  if (target) {
-    // if there are multiple classNamesToChange delimited by spaces, work with them
-    if (classNamesToChange.indexOf(' ')) {
-      // split multiple classNamesToChange into an array
-      var classes = classNamesToChange.split(' ');
-      // iterate through the array of classes
-      for (var j = classes.length - 1; j >= 0; j--) {
-        // if we're supposed to toggle the classNamesToChange on the target element, do it
+  if ((typeof targets !== 'undefined') && (targets.length > 0)) {
+
+    for (var j = targets.length - 1; j >= 0; j--) {
+
+      // if there are multiple classNamesToChange delimited by spaces, work with them
+      if (classNamesToChange.indexOf(' ')) {
+        // split multiple classNamesToChange into an array
+        var classes = classNamesToChange.split(' ');
+        // iterate through the array of classes
+        for (var k = classes.length - 1; k >= 0; k--) {
+          // if we're supposed to toggle the classNamesToChange on the target element, do it
+          if (changeType === 'toggle') {
+            targets[j].classList.toggle(classes[k]);
+          }
+          // if we're supposed to add the classNamesToChange to the target element, do it
+          else if (changeType === 'add') {
+            targets[j].classList.add(classes[k]);
+          }
+          // if we're supposed to remove the classNamesToChange from the target element, do it
+          else if (changeType === 'remove') {
+            targets[j].classList.remove(classes[k]);
+          }
+        }
+      }
+      // if there's just one class name, work with it
+      else if (classNamesToChange) {
+        // if we're supposed to toggle the class name on the target element, do it
         if (changeType === 'toggle') {
-          target.classList.toggle(classes[j]);
+          targets[j].classList.toggle(classNamesToChange);
         }
-        // if we're supposed to add the classNamesToChange to the target element, do it
+        // if we're supposed to add the class name to the target element, do it
         else if (changeType === 'add') {
-          target.classList.add(classes[j]);
+          targets[j].classList.add(classNamesToChange);
         }
-        // if we're supposed to remove the classNamesToChange from the target element, do it
+        // if we're supposed to remove the class name from the target element, do it
         else if (changeType === 'remove') {
-          target.classList.remove(classes[j]);
+          targets[j].classList.remove(classNamesToChange);
         }
-      }
-    }
-    // if there's just one class name, work with it
-    else if (classNamesToChange) {
-      // if we're supposed to toggle the class name on the target element, do it
-      if (changeType === 'toggle') {
-        target.classList.toggle(classNamesToChange);
-      }
-      // if we're supposed to add the class name to the target element, do it
-      else if (changeType === 'add') {
-        target.classList.add(classNamesToChange);
-      }
-      // if we're supposed to remove the class name from the target element, do it
-      else if (changeType === 'remove') {
-        target.classList.remove(classNamesToChange);
       }
     }
   }
