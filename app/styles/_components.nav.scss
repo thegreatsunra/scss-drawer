@@ -3,6 +3,7 @@
 .c-nav {
   overflow: auto;
   height: 100%;
+  padding-bottom: 50px; // makes sure last nav items don't get cut off by overflow: auto on short screens
 }
 
 .c-nav__item {
