@@ -16,9 +16,47 @@ $drawer-width-narrow: 60px;
   transition-delay: 100ms; // prevent jump when transitioning from collapsed@lg to collapsed@md
 }
 
+// ADD ANIMATIONS SOMEWHERE
+
+// animation-name: c-drawer--out;
+// animation-duration: 1s;
+// animation-delay: 0s;
+
+@mixin c-drawer--hidden {
+  left: -$drawer-width;
+}
+
+@mixin c-drawer--visible {
+  left: 0;
+}
+
+@keyframes c-drawer--in {
+  0% {
+    @include c-drawer--hidden;
+  }
+  25% {
+    @include c-drawer--visible;
+  }
+  100% {
+    @include c-drawer--visible;
+  }
+}
+
+@keyframes c-drawer--out {
+  0% {
+    @include c-drawer--visible;
+  }
+  75% {
+    @include c-drawer--visible;
+  }
+  100% {
+    @include c-drawer--hidden;
+  }
+}
+
 @include mq($until: md) {
   .c-drawer--hidden-until\@md {
-    left: -$drawer-width;
+    @include c-drawer--hidden;
   }
 }
 
