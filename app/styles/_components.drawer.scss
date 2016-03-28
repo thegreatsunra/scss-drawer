@@ -13,7 +13,6 @@ $drawer-width-narrow: 60px;
   left: -$drawer-width;
   transition: all 500ms ease-in-out;
   border-right: 1px solid #ccc;
-  transition-delay: 100ms; // prevent jump when transitioning from collapsed@lg to collapsed@md
 }
 
 .c-drawer--visible {
@@ -26,6 +25,7 @@ $drawer-width-narrow: 60px;
   }
   .c-drawer--narrow\@md {
     width: $drawer-width-narrow;
+    @include delayed-transition;
   }
 }
 
@@ -33,6 +33,7 @@ $drawer-width-narrow: 60px;
   .c-drawer--wide\@lg {
     left: 0;
     width: $drawer-width;
+    @include immediate-transition;
   }
 }
 

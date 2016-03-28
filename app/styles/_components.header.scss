@@ -9,7 +9,7 @@
   background-color: #eee;
   width: 100%;
   transition: all 500ms ease-in-out;
-  transition-delay: 100ms;
+  @include immediate-transition;
 }
 
 .c-header__title {
@@ -32,5 +32,6 @@
 @include mq($from: lg) {
   .c-header--wide\@lg {
     margin-left: $drawer-width-narrow;
+    @include delayed-transition;
   }
 }

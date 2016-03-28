@@ -31,6 +31,12 @@ $fa-font-path: "../bower_components/font-awesome/fonts/";
 @import "objects.lists";
 
 // #COMPONENTS
+@mixin delayed-transition {
+  transition-delay: 2s;
+}
+@mixin immediate-transition {
+  transition-delay: 100ms;
+}
 @import "components.drawer";
 @import "components.nav";
 @import "components.badges";
