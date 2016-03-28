@@ -28,27 +28,33 @@
 .c-nav__text {
   display: block;
   float: left;
-  transition: all 1s ease-in-out;
-  @include delayed-transition;
+  height: 20px;
+  font-size: 14px;
+  // transition: all 1s ease-in-out;
+  // @include delayed-transition;
 }
 
 @include mq($from: md) {
   .c-drawer--narrow\@md {
     .c-nav__text {
-      opacity: 0;
-      transition: all 1s ease-in-out;
-      @include immediate-transition;
+      height: 0;
+      padding: 0;
+      font-size: 0;
+      // opacity: .1;
+      // transition: all 1s ease-in-out;
+      // @include immediate-transition;
     }
     .c-subnav__link {
       height: 0;
       padding: 0;
-      transition: all 1s ease-in-out;
-      transition-delay: 1s;
+      font-size: 0;
+      // transition: all 1s ease-in-out;
+      // transition-delay: 1s;
     }
     .c-subnav__text {
-      opacity: 0;
-      transition: all 1s ease-in-out;
-      @include immediate-transition;
+      // opacity: .1;
+      // transition: all 1s ease-in-out;
+      // @include immediate-transition;
     }
   }
 }
@@ -56,16 +62,17 @@
 @include mq($from: lg) {
   .c-drawer--wide\@lg {
     .c-nav__text {
-      opacity: 1;
-      @include delayed-transition;
+      height: 20px;
+      font-size: 14px;
     }
     .c-subnav__link {
       height: 30px;
       padding: 5px 0 5px 40px;
+      font-size: 12px;
     }
     .c-subnav__text {
-      opacity: 1;
-      @include delayed-transition;
+      // opacity: 1;
+      // @include delayed-transition;
     }
   }
   .c-drawer--narrow\@lg {
@@ -96,16 +103,16 @@
   font-size: 13px;
   height: 30px;
   padding: 5px 0 5px 40px;
-  transition: all 1s ease-in-out;
-  @include immediate-transition;
+  // transition: all 1s ease-in-out;
+  // @include immediate-transition;
 }
 
 .c-subnav__icon {
 }
 
 .c-subnav__text {
-  transition: all 1s ease-in-out;
-  @include delayed-transition;
+  // transition: all 1s ease-in-out;
+  // @include delayed-transition;
 }
 
 .c-subnav__divider {

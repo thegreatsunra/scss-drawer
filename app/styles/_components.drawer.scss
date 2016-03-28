@@ -25,7 +25,6 @@ $drawer-width-narrow: 60px;
   }
   .c-drawer--narrow\@md {
     width: $drawer-width-narrow;
-    @include delayed-transition;
   }
 }
 
@@ -33,7 +32,6 @@ $drawer-width-narrow: 60px;
   .c-drawer--wide\@lg {
     left: 0;
     width: $drawer-width;
-    @include immediate-transition;
   }
 }
 
