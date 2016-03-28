@@ -24,19 +24,79 @@
 }
 
 
+@mixin c-nav__text--hidden {
+  height: 0;
+  font-size: 0;
+  overflow: hidden;
+  opacity: 0;
 }
 
-.c-nav__text {
+@mixin c-nav__text--visible {
+  height: 20px;
+  font-size: 14px;
+  overflow: hidden;
+  opacity: 1;
+}
 
+@keyframes c-nav__text--in {
+  0% {
+    @include c-nav__text--hidden;
+  }
+  50% {
+    height: 20px;
+    font-size: 14px;
+    overflow: hidden;
+    opacity: 0;
+  }
+  100% {
+    @include c-nav__text--visible;
+  }
+}
+
+@keyframes c-nav__text--out {
+  0% {
+    @include c-nav__text--visible;
+  }
+  25% {
+    height: 20px;
+    font-size: 14px;
+    overflow: hidden;
+    opacity: 0;
+  }
+  100% {
+    @include c-nav__text--hidden;
+  }
+}
+
+// .c-nav__text--in {
+//   animation-name: c-nav__text--in;
+//   animation-duration: 1s;
+// }
+
+// .c-nav__text--out {
+//   animation-name: c-nav__text--out;
+//   animation-duration: 1s;
+// }
+
+.c-nav__text {
+  @include c-nav__text--visible;
+  display: block;
+  float: left;
 }
 
 @include mq($from: md) {
   .c-drawer--narrow\@md {
     .c-nav__text {
-      display: none;
+      @include c-nav__text--hidden;
+      animation-name: c-nav__text--out;
+      animation-duration: 1s;
+      animation-delay: 0s;
     }
     .c-subnav {
-      display: none;
+      opacity: 0;
+      height: 0;
+      font-size: 0;
+      overflow: hidden;
     }
   }
 }
@@ -44,7 +104,10 @@
 @include mq($from: lg) {
   .c-drawer--wide\@lg {
     .c-nav__text {
-      display: inline;
+      @include c-nav__text--visible;
+      animation-name: c-nav__text--in;
+      animation-duration: 1s;
+      animation-delay: 1s;
     }
     .c-subnav {
       display: block;
@@ -52,7 +115,10 @@
   }
   .c-drawer--narrow\@lg {
     .c-nav__text {
-      display: none;
+      @include c-nav__text--hidden;
+      animation-name: c-nav__text--out;
+      animation-duration: 1s;
+      animation-delay: 0s;
     }
     .c-subnav {
       display: none;
