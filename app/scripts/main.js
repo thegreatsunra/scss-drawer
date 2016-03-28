@@ -201,4 +201,7 @@ document.addEventListener('DOMContentLoaded', function(event) {
     // toggle the drawer closed
     toggleDrawer(event);
   }
+  if (!docCookies.getItem('drawer')) {
+    docCookies.setItem('drawer', 'wide', 86400, '/');
+  }
 });
