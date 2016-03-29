@@ -6,11 +6,11 @@
 // Mobile (off) to Mobile (on) - click event -> show overlay + move full drawer in from left
 // Mobile (on) to Mobile (off) - click event -> hide overlay + move drawer out to left
 
-// Tablet (narrow) to Tablet (on)  - click event -> show overlay + resize drawer (wide) -> resize nav (up) + resize subnav (up) -> show nav text
+// Tablet (narrow) to Tablet (on)  - click event -> show overlay + resize drawer (wide) -> resize nav (up) + resize subnav (up) -> show nav text + show subnav
 // Tablet (on) to Tablet (narrow) - click event -> hide nav text + hide subnav -> resize nav (down) + resize subnav (down) -> hide overlay + resize drawer (narrow)
 
 // Desktop (wide) to Desktop (narrow) - click event -> hide nav text + hide subnav -> resize nav (down) + resize subnav (down) -> resize drawer (narrow) + set cookie (narrow)
-// Desktop (narrow) to Desktop (wide) - click event -> resize drawer (wide) + resize header (narrow) + resize view (narrow) -> resize nav (up) + resize subnav (up) -> show nav text + set cookie (narrow)
+// Desktop (narrow) to Desktop (wide) - click event -> resize drawer (wide) + resize header (narrow) + resize view (narrow) -> resize nav (up) + resize subnav (up) -> show nav text + show subnav + set cookie (narrow)
 
 // Mobile (off) to Tablet (narrow) - resize event (up) -> hide nav text + hide subnav -> resize nav (down) + resize subnav (down) -> resize drawer (narrow) -> resize header (wide) + resize view (wide) + show header toggle + move narrow drawer in from left
 // Mobile (on) to Tablet (on) - resize event (up) -> resize header (wide) + resize view (wide) + show header toggle
@@ -20,11 +20,54 @@
 // Tablet (narrow) to Desktop (wide) - resize event (up) -> resize drawer (wide) + resize header (narrow) + resize view (narrow) -> resize nav (up) + resize subnav (up) -> show nav text + set cookie (wide)
 // Tablet (on) to Desktop (wide) - resize event (up) -> resize header (narrow) + resize view (narrow) + hide overlay -> set cookie (wide)
 
-// Desktop (wide) to Tablet (narrow) - hide nav text + hide subnav -> resize nav (down) + resize subnav (down) -> resize drawer (narrow) + resize header (wide) + resize view (wide)
+// Desktop (wide) to Tablet (narrow) - resize event (down) -> hide nav text + hide subnav -> resize nav (down) + resize subnav (down) -> resize drawer (narrow) + resize header (wide) + resize view (wide)
 // Desktop (narrow) to Tablet (narrow) - resize event (down) -> ... nothing? does nothing happen?
 
+// ALL STATES CAN BE CONSTRUCTED BY:
 
+// (2) show/hide overlay 
+// overlay--visible
+// overlay--hidden
 
+// (2) move in/move out drawer
+// drawer--visible
+// drawer--hidden
+// drawer--fixed (though this is actually a function of the header/view)
+
+// (2) widen/narrow the drawer
+// drawer--wide
+// drawer--narrow
+
+// (2) show/hide nav text + sub nav
+// nav__text--visible
+// nav__text--invisible (opacity: 0)
+// nav__text--hidden (height: 0; font-size: 0;)
+
+// subnav__text--visible
+// subnav__text--invisible (opacity: 0)
+// subnav__text--hidden (height: 0; font-size: 0;)
+
+// (3) widen/narrow/full the header and view
+// header--full
+// header--wide
+// header--narrow
+
+// view--full
+// view--wide
+// view--narrow
+
+// (2) show/hide header toggle
+// toggle--visible
+// toggle--hidden
+
+// (2) animation timing
+// transition--normal (50ms for debounce)
+// transition--shortest-delay
+// transition--short-delay
+// transition--long-delay
+// transition--longest delay
+
+// (2) set narrow/wide cookie
 
 // define the large breakpoint media query
 var lgBreakpoint = window.matchMedia('(min-width: 1024px)');
