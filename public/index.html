@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <link rel="shortcut icon" type="image/png" href="favicon.ico">
+    <title>Drawer Animations</title>
+    <link rel="stylesheet" href="css/styles.css">
+  </head>
+  <body>
+    <div class="drawer drawer--wide drawer--moved-out drawer--moved-in@md drawer--narrow@md drawer--wide@lg">
+      <div class="drawer__header">
+        <h1 class="drawer__title drawer__title--hidden@md drawer__title--visible@lg">
+          drawer__title
+        </h1>
+      </div>
+      <div class="nav">
+         <ul class="nav__list">
+            <li class="nav__item"><a href="#" class="nav__link"><i class="fa fa-dashboard nav__icon nav__icon--visible"></i> <span class="nav__text nav__text--hidden@md nav__text--visible@lg">Nav Item One</span></a>
+              <div class="subnav">
+                <ul class="subnav__list">
+                  <li class="subnav__item"><a href="#" class="subnav__link subnav__link--hidden@md subnav__link--visible@lg">Nav Item One</a></li>
+                  <li class="subnav__item"><a href="#" class="subnav__link subnav__link--hidden@md subnav__link--visible@lg">Nav Item Two</a></li>
+                  <li class="subnav__item"><a href="#" class="subnav__link subnav__link--hidden@md subnav__link--visible@lg">Nav Item Three</a></li>
+                  <li class="subnav__item"><a href="#" class="subnav__link subnav__link--hidden@md subnav__link--visible@lg">Nav Item Four</a></li>
+                  <li class="subnav__item"><a href="#" class="subnav__link subnav__link--hidden@md subnav__link--visible@lg">Nav Item Five</a></li>
+                  <li class="subnav__item"><a href="#" class="subnav__link subnav__link--hidden@md subnav__link--visible@lg">Nav Item Six</a></li>
+                  <li class="subnav__item"><a href="#" class="subnav__link subnav__link--hidden@md subnav__link--visible@lg">Nav Item Seven</a></li>
+                </ul>
+              </div>
+           </li>
+           <li class="nav__item"><a href="#" class="nav__link"><i class="fa fa-dashboard nav__icon nav__icon--visible"></i> <span class="nav__text nav__text--visible nav__text--hidden@md nav__text--visible@lg">Nav Item Two</span></a></li>
+           <li class="nav__item"><a href="#" class="nav__link"><i class="fa fa-dashboard nav__icon nav__icon--visible"></i> <span class="nav__text nav__text--visible nav__text--hidden@md nav__text--visible@lg">Nav Item Three</span></a></li>
+           <li class="nav__item"><a href="#" class="nav__link"><i class="fa fa-dashboard nav__icon nav__icon--visible"></i> <span class="nav__text nav__text--visible nav__text--hidden@md nav__text--visible@lg">Nav Item Four</span></a></li>
+           <li class="nav__item"><a href="#" class="nav__link"><i class="fa fa-dashboard nav__icon nav__icon--visible"></i> <span class="nav__text nav__text--visible nav__text--hidden@md nav__text--visible@lg">Nav Item Five</span></a></li>
+           <li class="nav__item"><a href="#" class="nav__link"><i class="fa fa-dashboard nav__icon nav__icon--visible"></i> <span class="nav__text nav__text--visible nav__text--hidden@md nav__text--visible@lg">Nav Item Six</span></a></li>
+           <li class="nav__item"><a href="#" class="nav__link"><i class="fa fa-dashboard nav__icon nav__icon--visible"></i> <span class="nav__text nav__text--visible nav__text--hidden@md nav__text--visible@lg">Nav Item Seven</span></a></li>
+           <li class="nav__item"><a href="#" class="nav__link"><i class="fa fa-dashboard nav__icon nav__icon--visible"></i> <span class="nav__text nav__text--visible nav__text--hidden@md nav__text--visible@lg">Nav Item Eight</span></a></li>
+           <li class="nav__item"><a href="#" class="nav__link"><i class="fa fa-dashboard nav__icon nav__icon--visible"></i> <span class="nav__text nav__text--visible nav__text--hidden@md nav__text--visible@lg">Nav Item Nine</span></a></li>
+           <li class="nav__item"><a href="#" class="nav__link"><i class="fa fa-dashboard nav__icon nav__icon--visible"></i> <span class="nav__text nav__text--visible nav__text--hidden@md nav__text--visible@lg">Nav Item Ten</span></a></li>
+           <li class="nav__item"><a href="#" class="nav__link"><i class="fa fa-dashboard nav__icon nav__icon--visible"></i> <span class="nav__text nav__text--visible nav__text--hidden@md nav__text--visible@lg">Nav Item Eleven</span></a></li>
+           <li class="nav__item"><a href="#" class="nav__link"><i class="fa fa-dashboard nav__icon nav__icon--visible"></i> <span class="nav__text nav__text--visible nav__text--hidden@md nav__text--visible@lg">Nav Item Twelve</span></a></li>
+        </ul>
+      </div>
+      <div class="user">
+        <div class="user__name user__name--visible user__name--hidden@md user__name--visible@lg">
+          user__name
+        </div>
+      </div>
+    </div>
+    <div class="overlay overlay--hidden overlay--hidden@lg"></div>
+    <div class="toggle toggle--drawer toggle--moved-out toggle--moved-in@md">
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="16" viewBox="291 489.4 20 16"><path d="M291 489.4v4h20v-4h-20zm0 10h20v-4h-20v4zm0 6h20v-4h-20v4z"></path></svg>
+    </div>
+    <div class="toggle toggle--header toggle--moved-in toggle--moved-out@md">
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="16" viewBox="291 489.4 20 16"><path d="M291 489.4v4h20v-4h-20zm0 10h20v-4h-20v4zm0 6h20v-4h-20v4z"></path></svg>
+    </div>
+    <div class="wrapper">
+      <div class="header header--nudge-until@md header--wide@md header--narrow@lg">
+        <h2>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</h2>
+      </div>
+      <div class="content content--wide@md content--narrow@lg">
+
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean tempor ligula sed iaculis ultrices. Ut id ante commodo, malesuada magna vel, vestibulum lorem. Ut mattis turpis a enim pellentesque, sagittis tincidunt mi sodales. Sed rutrum eleifend odio, at convallis elit lobortis eget. Praesent facilisis odio non ex finibus viverra. Proin enim massa, suscipit at pharetra eu, iaculis eget augue. Fusce condimentum libero magna, ut dapibus massa pellentesque ac. Pellentesque facilisis sodales tellus, sed vehicula turpis condimentum quis. Sed consequat pellentesque neque, quis volutpat metus facilisis et. Nullam ac vestibulum turpis, scelerisque semper arcu. Duis ut arcu dignissim, sodales dolor nec, mollis ex. Suspendisse bibendum libero tortor, ut tempor nulla lobortis sed. In porta quam ut fringilla volutpat. Vivamus aliquam magna id lacinia vestibulum. Sed tincidunt lacus lobortis, ullamcorper sapien at, tempus massa. Donec eget purus at nisi ornare tincidunt sit amet sed dui.</p>
+
+        <p>Mauris nec enim elementum, luctus massa vel, dapibus nunc. Mauris auctor volutpat elementum. Aenean ullamcorper eros dictum neque accumsan, nec rhoncus ex tincidunt. Interdum et malesuada fames ac ante ipsum primis in faucibus. Suspendisse rhoncus dolor diam, eget bibendum nisi accumsan vel. In vitae quam lobortis libero tempor convallis at eu erat. Sed et luctus tellus, vitae ultrices ante. Sed sed vulputate ipsum, at sollicitudin lectus. Suspendisse potenti. Proin pretium magna diam, sed varius sapien condimentum eu. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut rhoncus, enim a vulputate molestie, lacus ipsum hendrerit dui, eu maximus urna massa sit amet ipsum. Integer non ipsum ut lacus semper iaculis. Vivamus bibendum ante vel ante mollis, at porta turpis tempus.</p>
+
+        <p>Phasellus vitae purus et dolor scelerisque gravida. Cras dapibus nulla arcu, a congue odio aliquet vitae. Mauris sit amet purus vitae metus ultricies venenatis nec quis nulla. Maecenas turpis nisi, tempus quis mattis a, finibus ac felis. Maecenas mollis dignissim risus, sit amet tristique sem. Vivamus ac tincidunt augue, et pretium nunc. Quisque vestibulum euismod felis sit amet lacinia. Maecenas arcu purus, lacinia condimentum hendrerit a, facilisis id nulla. Cras metus lorem, efficitur congue dapibus a, finibus vitae ipsum. Aenean quis facilisis lacus, in ultrices dui.</p>
+
+        <div>Aenean rutrum tristique maximus. Nullam venenatis laoreet sollicitudin. Nunc nec turpis dapibus, interdum lectus nec, sollicitudin felis. Nam vestibulum eu eros ac finibus. In at tempor tortor. Donec vel tincidunt lorem. Nulla egestas molestie gravida.</div>
+
+        <p>Vivamus tortor enim, luctus at volutpat vitae, faucibus vitae lectus. Donec tincidunt tortor eu pellentesque pretium. Vestibulum sagittis, diam eu sollicitudin tincidunt, urna arcu egestas mauris, at varius diam diam maximus dui. Phasellus lectus nulla, vehicula quis ante tincidunt, blandit tempus magna. Morbi tempus ornare metus, in ornare purus consequat ac. Suspendisse quis erat nec risus sodales tincidunt vitae ut est. Proin porttitor suscipit est, quis ullamcorper elit venenatis in. Nullam vitae justo lobortis, fringilla enim quis, tempor ligula.</p>
+
+        <p>Etiam vulputate dolor sed molestie viverra. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin elementum metus sed urna pulvinar fermentum. Duis imperdiet feugiat orci, id sodales mi malesuada id. Nulla eu neque nunc. Morbi risus justo, cursus a nulla at, tristique posuere augue. Nam feugiat gravida est sit amet tincidunt. Morbi laoreet dolor pellentesque imperdiet fermentum. Donec dui ex, finibus et semper eu, sagittis nec leo. Cras arcu massa, convallis et arcu sit amet, dictum molestie velit. Cras eget purus dolor. Nulla maximus erat nec elit tristique, ut ultrices lectus convallis.</p>
+
+        <p>Nullam aliquam ullamcorper gravida. Ut libero massa, molestie ac libero nec, hendrerit mollis purus. Praesent interdum enim quis erat pulvinar, non sodales enim viverra. Maecenas nibh ligula, dapibus in nisi vitae, dapibus interdum velit. Aenean eleifend, neque eget sodales vehicula, sapien quam eleifend lacus, id varius dolor dolor ut justo. Proin id odio dolor. Mauris rhoncus tempus massa. Proin et volutpat felis. Pellentesque non nisi lorem.</p>
+
+        <p>Cras molestie ligula vel urna tempus, vehicula condimentum neque sagittis. Nullam ut posuere dolor. Duis in tincidunt mauris. Proin egestas iaculis augue, blandit dignissim quam convallis at. Aenean sagittis, est sit amet efficitur dictum, ante elit sodales metus, ac dapibus quam elit vitae augue. Phasellus in semper orci. Praesent sodales vitae arcu efficitur luctus. Phasellus turpis massa, faucibus vitae pulvinar non, molestie interdum elit. Cras vitae neque malesuada, sodales dolor in, vestibulum nisl. Pellentesque a sollicitudin ante. Aliquam fringilla ligula vel arcu laoreet porttitor. Nunc tempor egestas mi, in semper mauris posuere vitae. Duis tempus venenatis urna eget placerat. Aliquam posuere, purus at aliquam facilisis, metus odio mollis dui, quis volutpat mi purus eu risus.</p>
+
+        <p>Curabitur pharetra malesuada sollicitudin. Integer gravida egestas neque, vitae pharetra quam congue a. Morbi porta consequat felis, euismod vestibulum risus mollis a. Etiam blandit rutrum tempus. Nulla nec mauris non nisl faucibus fermentum. Etiam ac vulputate lacus, eget vestibulum sem. Etiam ultricies ipsum vel condimentum lacinia. Quisque a massa a lorem pretium tristique vitae at lorem. Suspendisse non purus rutrum lacus mattis suscipit sed et tortor. In sed justo eget metus aliquet hendrerit id quis urna. Morbi aliquet fermentum posuere. Pellentesque imperdiet risus vel justo facilisis, commodo accumsan felis imperdiet. Aenean maximus lacus nec nisi eleifend mollis. Maecenas ac massa nec augue euismod dignissim.</p>
+
+        <p>Cras ultrices nulla nec ligula accumsan, in tempus massa viverra. Pellentesque eu vehicula nulla. Fusce sit amet metus eget est dapibus maximus vel in massa. Ut id gravida orci, at rhoncus massa. Aliquam nec ante ipsum. Suspendisse orci diam, faucibus non velit vitae, hendrerit ullamcorper augue. Nunc id molestie augue. Aenean ac aliquet felis. Nam auctor mauris nulla, eu fringilla nulla blandit varius. Nunc at magna vitae risus sollicitudin malesuada vitae id nunc. Proin nec sollicitudin urna. Sed elementum turpis ut viverra euismod.</p>
+      </div>
+    </div>
+    <script src="js/scripts.js"></script>
+  </body>
+</html>
