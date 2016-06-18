@@ -1,0 +1,482 @@
+// _tools.animations.scss
+
+@mixin in-state-opacity {
+  opacity: 1;
+}
+
+@mixin out-state-opacity {
+  opacity: 0;
+}
+
+@mixin out-state-scale {
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-top: 0;
+  padding-bottom: 0;
+  font-size: 0;
+}
+
+@mixin out-state {
+  @include out-state-scale;
+  @include out-state-opacity;
+}
+
+@keyframes drawer--animate-in {
+  0% {
+    transform: translateX(-$drawer-width--wide);
+  }
+  85% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes drawer--animate-out {
+  0% {
+    transform: translateX(0);
+  }
+  85% {
+    transform: translateX(-$drawer-width--wide);
+  }
+  100% {
+    transform: translateX(-$drawer-width--wide);
+  }
+}
+
+@keyframes drawer--animate-wide {
+  0% {
+    width: $drawer-width--narrow;
+  }
+  33% {
+    width: $drawer-width--wide;
+  }
+  100% {
+    width: $drawer-width--wide;
+  }
+}
+
+@keyframes drawer--animate-narrow {
+  0% {
+    width: $drawer-width--wide;
+  }
+  33% {
+    width: $drawer-width--wide;
+  }
+  66% {
+    width: $drawer-width--narrow;
+  }
+  100% {
+    width: $drawer-width--narrow;
+  }
+}
+
+.drawer {
+  &--animate-in {
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: forwards;
+    animation-duration: 500ms;
+    animation-name: drawer--animate-in;
+  }
+  &--animate-out {
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: backwards;
+    animation-duration: 500ms;
+    animation-name: drawer--animate-out;
+  }
+  &--animate-narrow {
+    animation-fill-mode: forwards;
+    animation-duration: 1s;
+    animation-name: drawer--animate-narrow;
+  }
+  &--animate-wide {
+    animation-fill-mode: forwards;
+    animation-duration: 1s;
+    animation-name: drawer--animate-wide;
+  }
+}
+
+@mixin drawer__title--in-state-opacity {
+  @include in-state-opacity;
+}
+
+@mixin drawer__title--in-state-scale {
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-top: 20px;
+    padding-bottom: 0;
+    font-size: 18px;
+}
+
+@mixin drawer__title--in-state {
+  @include drawer__title--in-state-scale;
+  @include drawer__title--in-state-opacity;
+}
+
+@keyframes drawer__title--animate-in {
+  0% {
+    @include out-state;
+  }
+  33% {
+    @include drawer__title--in-state-scale;
+    @include out-state-opacity;
+  }
+  100% {
+    @include drawer__title--in-state;
+  }
+}
+
+@keyframes drawer__title--animate-out {
+  0% {
+    @include drawer__title--in-state;
+  }
+  33% {
+    @include out-state-opacity;
+    @include drawer__title--in-state-scale;
+  }
+  34% {
+    @include out-state-opacity;
+    @include drawer__title--in-state-scale;
+  }
+  100% {
+    @include out-state;
+  }
+}
+
+.drawer__title {
+  &--animate-in {
+    animation-fill-mode: forwards;
+    animation-duration: 1s;
+    animation-name: drawer__title--animate-in;
+  }
+  &--animate-out {
+    animation-fill-mode: backwards;
+    animation-duration: 1s;
+    animation-name: drawer__title--animate-out;
+  }
+}
+
+@keyframes toggle--animate-in {
+  0% {
+    transform: translateX(-$drawer-width--wide);
+  }
+  85% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes toggle--animate-out {
+  0% {
+    transform: translateX(0);
+  }
+  85% {
+    transform: translateX(-$drawer-width--wide);
+  }
+  100% {
+    transform: translateX(-$drawer-width--wide);
+  }
+}
+
+.toggle {
+  &--animate-in {
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: forwards;
+    animation-duration: 500ms;
+    animation-name: toggle--animate-in;
+  }
+  &--animate-out {
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: forwards;
+    animation-duration: 500ms;
+    animation-name: toggle--animate-out;
+  }
+}
+
+@mixin user__name--in-state-opacity {
+  @include in-state-opacity;
+}
+
+@mixin user__name--in-state-scale {
+  font-size: 18px;
+}
+
+@mixin user__name--in-state {
+  @include user__name--in-state-scale;
+  @include user__name--in-state-opacity;
+}
+
+@keyframes user__name--animate-in {
+  0% {
+    @include out-state;
+  }
+  33% {
+    @include out-state-opacity;
+    @include user__name--in-state-scale;
+  }
+  100% {
+    @include user__name--in-state;
+  }
+}
+
+@keyframes user__name--animate-out {
+  0% {
+    @include user__name--in-state;
+  }
+  33% {
+    @include out-state-opacity;
+    @include user__name--in-state-scale;
+  }
+  34% {
+    @include out-state;
+  }
+  100% {
+    @include out-state;
+  }
+}
+
+.user__name {
+  &--animate-in {
+    animation-fill-mode: forwards;
+    animation-duration: 1s;
+    animation-name: user__name--animate-in;
+  }
+  &--animate-out {
+    animation-fill-mode: backwards;
+    animation-duration: 1s;
+    animation-name: user__name--animate-out;
+  }
+}
+
+@mixin nav__text--in-state-scale {
+  font-size: 16px;
+}
+@mixin nav__text--in-state-opacity {
+  @include in-state-opacity;
+}
+
+@mixin nav__text--in-state {
+  @include nav__text--in-state-opacity;
+  @include nav__text--in-state-scale;
+}
+
+@keyframes nav__text--animate-in {
+  0% {
+    @include out-state;
+  }
+  33% {
+    @include nav__text--in-state-scale;
+    @include out-state-opacity;
+  }
+  100% {
+    @include nav__text--in-state;
+  }
+}
+
+@keyframes nav__text--animate-out {
+  0% {
+    @include nav__text--in-state;
+  }
+  33% {
+    @include nav__text--in-state-scale;
+    @include out-state-opacity;
+  }
+  34% {
+    @include out-state;
+  }
+  100% {
+    @include out-state;
+  }
+}
+
+.nav__text {
+  &--animate-in {
+    animation-fill-mode: forwards;
+    animation-duration: 1s;
+    animation-name: nav__text--animate-in;
+  }
+  &--animate-out {
+    animation-fill-mode: backwards;
+    animation-duration: 1s;
+    animation-name: nav__text--animate-out;
+
+  }
+}
+
+@mixin subnav__link--in-state-scale {
+  padding-top: 5px;
+  padding-bottom: 5px;
+  font-size: 16px;
+}
+
+@mixin subnav__link--in-state-opacity {
+  @include in-state-opacity;
+}
+
+@mixin subnav__link__in-state {
+  @include subnav__link--in-state-scale;
+  @include subnav__link--in-state-opacity;
+}
+
+@keyframes subnav__link--animate-in {
+  0% {
+    @include out-state;
+  }
+  33% {
+    @include subnav__link--in-state-scale;
+    @include out-state-opacity;
+  }
+  100% {
+    @include subnav__link--in-state;
+  }
+}
+
+@keyframes subnav__link--animate-out {
+  0% {
+    @include subnav__link--in-state;
+  }
+  20% {
+    @include subnav__link--in-state-scale;
+    @include out-state-opacity;
+  }
+  40% {
+    @include out-state;
+  }
+  100% {
+    @include out-state;
+  }
+}
+
+.subnav__link {
+  &--animate-in {
+    animation-fill-mode: forwards;
+    animation-duration: 1s;
+    animation-name: subnav__link--animate-in;
+
+  }
+  &--animate-out {
+    animation-fill-mode: backwards;
+    animation-duration: 1s;
+    animation-name: subnav__link--animate-out;
+  }
+}
+
+@keyframes header--animate-wide {
+  0% {
+    left: $drawer-width--wide;
+  }
+  33% {
+    left: $drawer-width--wide;
+  }
+  66% {
+    left: $drawer-width--narrow;
+  }
+  100% {
+    left: $drawer-width--narrow;
+  }
+}
+
+@keyframes header--animate-narrow {
+  0% {
+    left: $drawer-width--narrow;
+  }
+  33% {
+    left: $drawer-width--wide;
+  }
+  100% {
+    left: $drawer-width--wide;
+  }
+}
+
+@keyframes header--animate-full-to-wide {
+  0% {
+    left: 0;
+  }
+  85% {
+    left: $drawer-width--narrow;
+  }
+  100% {
+    left: $drawer-width--narrow;
+  }
+}
+
+.header {
+  &--animate-wide {
+    animation-fill-mode: forwards;
+    animation-duration: 1s;
+    animation-name: header--animate-wide;
+  }
+  &--animate-narrow {
+    animation-fill-mode: forwards;
+    animation-duration: 1s;
+    animation-name: header--animate-narrow;
+  }
+  &--animate-full-to-wide {
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: forwards;
+    animation-duration: 500s;
+    // animation-name: header--animate-full-to-wide; // WTF
+  }
+}
+
+
+@keyframes content--animate-wide {
+  0% {
+    margin-left: $drawer-width--wide;
+  }
+  33% {
+    margin-left: $drawer-width--wide;
+  }
+  66% {
+    margin-left: $drawer-width--narrow;
+  }
+  100% {
+    margin-left: $drawer-width--narrow;
+  }
+}
+
+@keyframes content--animate-narrow {
+  0% {
+    margin-left: $drawer-width--narrow;
+  }
+  33% {
+    margin-left: $drawer-width--wide;
+  }
+  100% {
+    margin-left: $drawer-width--wide;
+  }
+}
+
+@keyframes content--animate-full-to-wide {
+  0% {
+    margin-left: 0;
+  }
+  85% {
+    margin-left: $drawer-width--narrow;
+  }
+  100% {
+    margin-left: $drawer-width--narrow;
+  }
+}
+
+.content {
+  &--animate-wide {
+    animation-fill-mode: forwards;
+    animation-duration: 1s;
+    animation-name: content--animate-wide;
+  }
+  &--animate-narrow {
+    animation-fill-mode: forwards;
+    animation-duration: 1s;
+    animation-name: content--animate-narrow;
+  }
+  &--animate-full-to-wide {
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: forwards;
+    animation-duration: 500ms;
+    animation-name: content--animate-full-to-wide;
+  }
+}
