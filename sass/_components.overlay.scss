@@ -1,0 +1,23 @@
+// _components.overlay.scss
+
+.overlay {
+  z-index: 200;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: auto;
+  background-color: rgba(0, 0, 0, 0.7);
+  transition: background-color 500ms;
+  &--hidden {
+      pointer-events: none;
+      background-color: rgba(0, 0, 0, 0);
+  }
+  @include mq($from: lg) {
+    &--hidden\@lg {
+      pointer-events: none;
+      background-color: rgba(0, 0, 0, 0);
+    }
+  }
+}
