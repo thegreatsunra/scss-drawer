@@ -1,0 +1,29 @@
+// _components.content.scss
+
+.content {
+  height: 100%;
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+  &--narrow {
+    margin-left: $drawer-width--wide;
+  }
+  &--wide {
+    margin-left: $drawer-width--narrow;
+  }
+  @include mq($from: md) {
+    &--narrow\@md {
+      margin-left: $drawer-width--wide;
+    }
+    &--wide\@md {
+      margin-left: $drawer-width--narrow;
+    }
+  }
+  @include mq($from: lg) {
+    &--narrow\@lg {
+      margin-left: $drawer-width--wide;
+    }
+    &--wide\@lg {
+      margin-left: $drawer-width--narrow;
+    }
+  }
+}

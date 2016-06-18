@@ -1,0 +1,41 @@
+// _components.header.scss
+
+.header {
+  position: fixed;
+  z-index: 100;
+  top: 0;
+  right: 0;
+  left: 0;
+  height: $view-header-height;
+  overflow: hidden;
+  white-space: nowrap;
+  background-color: $white;
+  border-bottom: 1px solid $gray;
+  &--narrow {
+    left: $drawer-width--wide;
+  }
+  &--wide {
+    left: $drawer-width--narrow;
+  }
+  @include mq($from: md) {
+    &--narrow\@md {
+      left: $drawer-width--wide;
+    }
+    &--wide\@md {
+      left: $drawer-width--narrow;
+    }
+  }
+  @include mq($until: md) {
+    &--nudge-until\@md {
+      padding-left: $drawer-width--narrow;
+    }
+  }
+  @include mq($from: lg) {
+    &--narrow\@lg {
+      left: $drawer-width--wide;
+    }
+    &--wide\@lg {
+      left: $drawer-width--narrow;
+    }
+  }
+}
