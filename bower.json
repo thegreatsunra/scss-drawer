@@ -1,7 +1,25 @@
 {
   "name": "scss-drawer",
-  "private": true,
-  "dependencies": {},
+  "version": "0.1.0",
+  "description": "Animated drawer in Sass and vanilla JavaScript",
+  "authors": [
+    "Dane Petersen"
+  ],
+  "homepage": "https://github.com/thegreatsunra/scss-drawer",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/thegreatsunra/scss-drawer.git"
+  },
+  "bugs": {
+    "url": "https://github.com/thegreatsunra/scss-drawer/issues"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "http://opensource.org/licenses/MIT"
+    }
+  ],
+  "main": "gulpfile.js",
   "devDependencies": {
     "chai": "^3.5.0",
     "mocha": "^2.4.5",
