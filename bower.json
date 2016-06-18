@@ -1,7 +1,7 @@
 {
   "name": "scss-drawer",
   "version": "0.1.0",
-  "description": "Animated drawer in Sass and vanilla JavaScript",
+  "description": "Animated navigation drawer in Sass and vanilla JavaScript",
   "authors": [
     "Dane Petersen"
   ],
