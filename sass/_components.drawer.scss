@@ -1,0 +1,73 @@
+// _components.drawer.scss
+
+.drawer {
+  position: fixed;
+  top: 0;
+  // transform: translateX(-$drawer-width--wide);
+  height: 100%;
+  z-index: 300;
+  padding-top: $view-header-height;
+  background-color: $gray-darker;
+  color: $white;
+  &--wide {
+    width: $drawer-width--wide;
+  }
+  &--narrow {
+    width: $drawer-width--narrow;
+  }
+  &--moved-in {
+    transform: translateX(0);
+  }
+  &--moved-out {
+    transform: translateX(-$drawer-width--wide);
+  }
+  @include mq($from: md) {
+    &--narrow\@md {
+      width: $drawer-width--narrow;
+    }
+    &--moved-in\@md {
+      transform: translateX(0);
+    }
+  }
+  @include mq($from: lg) {
+    &--wide\@lg {
+      width: $drawer-width--wide;
+    }
+    &--narrow\@lg {
+      width: $drawer-width--narrow;
+    }
+  }
+}
+
+.drawer__header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding-left: $drawer-width--narrow;
+  height: $view-header-height;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+}
+
+.drawer__title {
+  @include drawer__title--in-state;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  &--hidden {
+    @include out-state;
+  }
+  @include mq($from: md) {
+    &--hidden\@md {
+      @include out-state;
+    }
+  }
+  @include mq($from: lg) {
+    &--visible\@lg {
+      @include drawer__title--in-state;
+    }
+    &--hidden\@lg {
+      @include out-state;
+    }
+  }
+}

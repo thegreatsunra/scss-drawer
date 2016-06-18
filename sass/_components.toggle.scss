@@ -1,0 +1,35 @@
+// components.toggle.scs
+
+.toggle {
+  position: fixed;
+  top: 0;
+  left: 0;
+  padding: 20px;
+  cursor: pointer;
+  &--moved-in {
+    transform: translateX(0);
+  }
+  &--moved-out {
+    transform: translateX(-$drawer-width--wide);
+  }
+  @include mq($from: md) {
+    &--moved-out\@md {
+      transform: translateX(-$drawer-width--wide);
+    }
+    &--moved-in\@md {
+      transform: translateX(0);
+    }
+  }
+  &--drawer {
+    z-index: 310;
+    path {
+      fill: $white;
+    }
+  }
+  &--header {
+    z-index: 110;
+    path {
+      fill: $black;
+    }
+  }
+}

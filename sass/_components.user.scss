@@ -1,0 +1,29 @@
+// _components.user.scss
+
+.user {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  height: $user-height;
+  width: 100%;
+  border-top: 1px solid rgba(0, 0, 0, 0.15);;
+}
+
+.user__name {
+  &--hidden {
+    @include out-state;
+  }
+  @include mq($from: md) {
+    &--hidden\@md {
+      @include out-state;
+    }
+  }
+  @include mq($from: lg) {
+    &--visible\@lg {
+      @include user__name--in-state;
+    }
+    &--hidden\@lg {
+      @include out-state;
+    }
+  }
+}

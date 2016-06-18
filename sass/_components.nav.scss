@@ -1,0 +1,133 @@
+// _components.nav.scss
+
+.nav {
+  position: absolute;
+  top: $view-header-height;
+  left: 0;
+  bottom: $user-height;
+  width: 100%;
+  max-height: 100%;
+  overflow-y: auto;
+  scrollbar-base-color: $gray-darker;
+  scrollbar-arrow-color: $gray-dark;
+  scrollbar-track-color: $gray-darker;
+  scrollbar-face-color: $gray-dark;
+  -webkit-overflow-scrolling: touch;
+  &::-webkit-scrollbar {
+    width: 7px;
+  }
+  &::-webkit-scrollbar-track {
+      background-color: $gray-darker;
+      border: 2px solid $gray-darker;
+  }
+  &::-webkit-scrollbar-thumb {
+      border-left: 2px solid $gray-darker;
+      border-right: 2px solid $gray-darker;
+      background-color: $gray;
+  }
+}
+
+.nav__list {
+  margin-left: 0;
+  padding-left: 0;
+  list-style: none;
+}
+
+.nav__icon {
+  font-style: normal;
+  &--visible {
+    @include visible;
+  }
+  &--hidden {
+    @include hidden;
+  }
+}
+
+.nav__item {
+  display: inline;
+}
+
+.nav__link {
+  display: block;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  text-decoration: none;
+}
+.nav__text {
+  // &--visible {
+  //   @include visible;
+  // }
+  &--hidden {
+    @include out-state;
+  }
+  @include mq($from: md) {
+    &--hidden\@md {
+      @include out-state;
+    }
+  }
+  @include mq($from: lg) {
+    &--visible\@lg {
+      @include nav__text--in-state;
+    }
+    &--hidden\@lg {
+      @include out-state;
+    }
+  }
+}
+
+// .subnav {
+//   &--visible {
+//     @include visible;
+//   }
+//   &--hidden {
+//     @include hidden;
+//   }
+//   @include mq($from: md) {
+//     &--hidden\@md {
+//       @include hidden;
+//     }
+//   }
+//   @include mq($from: lg) {
+//     &--visible\@lg {
+//       @include visible;
+//     }
+//     &--hidden\@lg {
+//       @include hidden;
+//     }
+//   }
+// }
+
+.subnav__item {
+  display: inline;
+}
+
+.subnav__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.subnav__link {
+  @include subnav__link--in-state;
+  display: block;
+  padding-left: 40px;
+  overflow: hidden;
+  text-decoration: none;
+  white-space: nowrap;
+  text-overflow: ellipses;
+  @include mq($from: md) {
+    &--hidden\@md {
+      @include out-state;
+    }
+  }
+  @include mq($from: lg) {
+    &--hidden\@lg {
+      @include out-state;
+    }
+  }
+  @include mq($from: lg) {
+    &--visible\@lg {
+      @include subnav__link--in-state;
+    }
+  }
+}
