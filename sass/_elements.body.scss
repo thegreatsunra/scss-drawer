@@ -1,0 +1,14 @@
+// _elements.body.scss
+
+html, body {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  font-family: sans-serif;
+  color: $black;
+  background-color: $gray-light;
+}
+
+body {
+  min-height: 100%;
+}
