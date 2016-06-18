@@ -21,8 +21,6 @@
   ],
   "main": "gulpfile.js",
   "devDependencies": {
-    "chai": "^3.5.0",
-    "mocha": "^2.4.5",
     "normalize-css": "normalize.css#^4.0.0",
     "sass-mq": "^3.2.9",
     "font-awesome": "^4.5.0"
