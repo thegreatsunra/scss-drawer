@@ -1,0 +1,12 @@
+// _utilities.generic.scss
+
+.no-scroll {
+  overflow: hidden;
+  -webkit-overflow-scrolling: auto;
+  @include mq($until: lg) {
+    &--until\@lg {
+      overflow: hidden;
+      -webkit-overflow-scrolling: auto;
+    }
+  }
+}
