@@ -1,14 +1,23 @@
 var gulp   = require('gulp'),
     browserSync = require('browser-sync'),
     sass = require('gulp-sass'),
+    eslint = require('gulp-eslint'),
     del = require('del');
 
-gulp.task('sass', function () {
-  return gulp.src('./sass/*.scss')
+gulp.task('sass', function() {
+  gulp.src('./sass/*.scss')
     .pipe(sass({
       includePaths: ['bower_components']
     }).on('error', sass.logError))
     .pipe(gulp.dest('./.tmp/css'));
+});
+
+gulp.task('js', function() {
+  return gulp.src('./public/js/*.js')
+    .pipe(eslint({
+      ecmaVersion: 5
+      }))
+    .pipe(eslint.format())
 });
 
 gulp.task('serve', function() {
@@ -20,11 +29,15 @@ gulp.task('serve', function() {
   });
 });
 
-gulp.task('watch', function() {
+gulp.task('watch:sass', function() {
   gulp.watch('./sass/*.scss', ['sass']);
 });
 
-gulp.task('default', ['serve', 'watch']);
+gulp.task('watch:js', function() {
+  gulp.watch('./public/js/*.js', ['js']);
+});
+
+gulp.task('default', ['serve', 'watch:sass', 'watch:js']);
 
 gulp.task('clean', function() {
   return del.sync('dist');
