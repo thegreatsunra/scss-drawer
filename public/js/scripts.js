@@ -17,69 +17,159 @@ function getItemByPropertyName(haystack, propertyName) {
   }
 };
 
-function defaultDrawerState() {
-  changeClasses('drawer', 'add', 'drawer--moved-out drawer--narrow@md drawer--wide@lg');
-  changeClasses('drawer', 'remove', 'drawer--moved-in drawer--narrow@lg');
-  changeClasses('drawer__title', 'add', 'drawer__title--hidden@md drawer__title--visible@lg');
-  changeClasses('drawer__title', 'remove', 'drawer__title--hidden@lg');
-  changeClasses('nav__text', 'remove', 'nav__text--hidden@lg');
-  changeClasses('nav__text', 'add', 'nav__text--hidden@md nav__text--visible@lg');
-  changeClasses('subnav__link', 'add', 'subnav__link--hidden@md subnav__link--visible@lg');
-  changeClasses('subnav__link', 'remove', 'subnav__link--hidden@lg');
-  changeClasses('user__name', 'add', 'user__name--hidden@md');
-  changeClasses('user__name', 'remove', 'user__name--hidden@lg');
-  changeClasses('toggle--drawer', 'add', 'toggle--moved-out');
-  changeClasses('toggle--drawer', 'remove', 'toggle--moved-in');
-  changeClasses('toggle--header', 'add', 'toggle--moved-in');
-  changeClasses('toggle--header', 'remove', 'toggle--moved-out');
-  changeClasses('header', 'add', 'header--narrow@lg');
-  changeClasses('header', 'remove', 'header--wide@lg');
-  changeClasses('content', 'add', 'content--narrow@lg');
-  changeClasses('content', 'remove', 'content--wide@lg no-scroll--until@lg');
-  changeClasses('overlay', 'add', 'overlay--hidden');
-} 
 
-function openDrawerState() {
-  changeClasses('drawer', 'add', 'drawer--moved-in drawer--narrow@lg');
-  changeClasses('drawer', 'remove', 'drawer--moved-out drawer--narrow@md drawer--wide@lg');
-  changeClasses('drawer__title', 'add', '');
-  changeClasses('drawer__title', 'remove', 'drawer__title--hidden@md drawer__title--hidden@lg drawer__title--visible@lg');
-  changeClasses('nav__text', 'remove', 'nav__text--hidden@md nav__text--hidden@lg');
-  changeClasses('nav__text', 'add', 'nav__text--visible@lg');
-  changeClasses('subnav__link', 'remove', 'subnav__link--hidden@md subnav__link--hidden@lg');
-  changeClasses('subnav__link', 'add', 'subnav__link--visible@lg');
-  changeClasses('user__name', 'add', 'user__name--hidden@lg');
-  changeClasses('user__name', 'remove', 'user__name--hidden@md');
-  changeClasses('toggle--drawer', 'add', 'toggle--moved-in');
-  changeClasses('toggle--drawer', 'remove', 'toggle--moved-out');
-  changeClasses('toggle--header', 'add', 'toggle--moved-out');
-  changeClasses('toggle--header', 'remove', 'toggle--moved-in');
-  changeClasses('header', 'add', 'header--wide@lg');
-  changeClasses('header', 'remove', 'header--narrow@lg');
-  changeClasses('content', 'add', 'content--wide@lg no-scroll--until@lg');
-  changeClasses('content', 'remove', 'content--narrow@lg');
-  changeClasses('overlay', 'remove', 'overlay--hidden');
+
+function loadState(stateObject, targetStateName) {
+  // grab the target state object from the master states object
+  var targetState = getItemByPropertyName(stateObject, targetStateName);
+  // iterate through each target class in the target state object
+  for (var targetClass in targetState) {
+    // grab the target state for each class in the target state
+    var stateChangeTarget = targetState[targetClass];
+    // iterate through each target state change (e.g. whether to add, remove, toggle)
+    for (var stateChangeType in stateChangeTarget) {
+      // grab the target state change classes (e.g. which classes to add, remove, or toggle)
+      var stateChangeClasses = stateChangeTarget[stateChangeType];
+      // change the classes of each target element based on its target class, the type of change to make, and its target classes
+      changeClasses(targetClass, stateChangeType, stateChangeClasses);
+    }
+  }
 }
 
-function narrowDrawerStateAtLarge() {
-  changeClasses('drawer', 'add', 'drawer--moved-out drawer--narrow@md drawer--narrow@lg');
-  changeClasses('drawer', 'remove', 'drawer--moved-in drawer--wide@lg');
-  changeClasses('drawer__title', 'add', 'drawer__title--hidden@md drawer__title--hidden@lg');
-  changeClasses('drawer__title', 'remove', 'drawer__title--visible@lg');
-  changeClasses('nav__text', 'add', 'nav__text--hidden@md nav__text--hidden@lg');
-  changeClasses('nav__text', 'remove', 'nav__text--visible@lg');
-  changeClasses('subnav__link', 'add', 'subnav__link--hidden@md subnav__link--hidden@lg');
-  changeClasses('subnav__link', 'remove', 'subnav__link--visible@lg');
-  changeClasses('user__name', 'add', 'user__name--hidden@md user__name--hidden@lg');
-  changeClasses('toggle--drawer', 'add', 'toggle--moved-in');
-  changeClasses('toggle--drawer', 'remove', 'toggle--moved-out');
-  changeClasses('toggle--header', 'add', 'toggle--moved-out');
-  changeClasses('toggle--header', 'remove', 'toggle--moved-in');
-  changeClasses('header', 'add', 'header--wide@lg');
-  changeClasses('header', 'remove', 'header--narrow@lg');
-  changeClasses('content', 'add', 'content--wide@lg');
-  changeClasses('content', 'remove', 'content--narrow@lg no-scroll--until@lg');
-  changeClasses('overlay', 'add', 'overlay--hidden');
+// function loadState(stateName) {
+//   if (var stateObject = getItemByPropertyName(stateName)) {
+//     for (var i = stateObject.length - 1; i >= 0; i--) {
+//       if (var targetClass = stateObject[i]) {
+//         for (var i = targetClass.length - 1; i >= 0; i--) {
+//           changeClasses(, changeType, changeType[0])
+//       }
+//     }
+//   }
+// }
+
+
+var statesObject = {
+  'defaultDrawerState' : {
+    'drawer' : {
+      'add' : 'drawer--moved-out drawer--narrow@md drawer--wide@lg',
+      'remove' : 'drawer--moved-in drawer--narrow@lg'
+    },
+    'drawer__title' : {
+      'add' : 'drawer__title--hidden@md drawer__title--visible@lg',
+      'remove' : 'drawer__title--hidden@lg'
+    },
+    'nav__text' : {
+      'remove' : 'nav__text--hidden@lg',
+      'add' : 'nav__text--hidden@md nav__text--visible@lg'
+    },
+    'subnav__link' : {
+      'add' : 'subnav__link--hidden@md subnav__link--visible@lg',
+      'remove' : 'subnav__link--hidden@lg'
+    },
+    'user__name' : {
+      'add' : 'user__name--hidden@md',
+      'remove' : 'user__name--hidden@lg'
+    },
+    'toggle--drawer' : {
+       'add' : 'toggle--moved-out',
+       'remove' : 'toggle--moved-in'
+    },
+    'toggle--header' : {
+       'add' : 'toggle--moved-in',
+       'remove' : 'toggle--moved-out'
+    },
+    'header' : {
+      'add' : 'header--narrow@lg',
+      'remove' : 'header--wide@lg'
+    },
+    'content' : {
+      'add' : 'content--narrow@lg',
+      'remove' : 'content--wide@lg no-scroll--until@lg'
+    },
+    'overlay' : {
+      'add' : 'overlay--hidden'
+    }
+  },
+  'openDrawerState' : {
+    'drawer' : {
+      'add' : 'drawer--moved-in drawer--narrow@lg',
+      'remove' : 'drawer--moved-out drawer--narrow@md drawer--wide@lg'
+    },
+    'drawer__title' : {
+      'remove' : 'drawer__title--hidden@md drawer__title--hidden@lg drawer__title--visible@lg'
+    },
+    'nav__text' : {
+      'remove' : 'nav__text--hidden@md nav__text--hidden@lg',
+      'add' : 'nav__text--visible@lg',
+    },
+    'subnav__link' : {
+      'remove' : 'subnav__link--hidden@md subnav__link--hidden@lg',
+      'add' : 'subnav__link--visible@lg'
+    },
+    'user__name' : {
+      'remove' : 'user__name--hidden@md',
+      'add' : 'user__name--hidden@lg'
+    },
+    'toggle--drawer' : {
+      'remove' : 'toggle--moved-out',
+      'add' : 'toggle--moved-in'
+    },
+    'toggle--header' : {
+      'remove' : 'toggle--moved-in',
+      'add' : 'toggle--moved-out'
+    },
+    'header' : {
+      'remove' : 'header--narrow@lg',
+      'add' : 'header--wide@lg'
+    },
+    'content' : {
+      'remove' : 'content--narrow@lg',
+      'add' : 'content--wide@lg no-scroll--until@lg'
+    },
+    'overlay' : {
+      'remove' : 'overlay--hidden'
+    }
+  },
+  'narrowDrawerStateAtLarge' : {
+    'drawer' : {
+      'add' : 'drawer--moved-out drawer--narrow@md drawer--narrow@lg',
+      'remove' : 'drawer--moved-in drawer--wide@lg'
+    },
+    'drawer__title' : {
+      'add' : 'drawer__title--hidden@md drawer__title--hidden@lg',
+      'remove' : 'drawer__title--visible@lg'
+    },
+    'nav__text' : {
+      'add' : 'nav__text--hidden@md nav__text--hidden@lg',
+      'remove' : 'nav__text--visible@lg'
+    },
+    'subnav__link' : {
+      'add' : 'subnav__link--hidden@md subnav__link--hidden@lg',
+      'remove' : 'subnav__link--visible@lg'
+    },
+    'user__name' : {
+      'add' : 'user__name--hidden@md user__name--hidden@lg',
+    },
+    'toggle--drawer' : {
+      'add' : 'toggle--moved-in',
+      'remove' : 'toggle--moved-out'
+    },
+    'toggle--header' : {
+      'add' : 'toggle--moved-out',
+      'remove' : 'toggle--moved-in'
+    },
+    'header' : {
+      'add' : 'header--wide@lg',
+      'remove' : 'header--narrow@lg'
+    },
+    'content' : {
+      'add' : 'content--wide@lg',
+      'remove' : 'content--narrow@lg no-scroll--until@lg',
+    },
+    'overlay' : {
+      'add' : 'overlay--hidden'
+    }
+  }
 }
 
 function transitionNarrowToWide() {
@@ -196,37 +286,37 @@ function bindControl(controlName) {
             // we're at the lg breakpoint and the drawer is narrow
             // make the drawer wide at the lg breakpoint, which is the default state
             transitionNarrowToWideAtLarge();
-            defaultDrawerState();
+            loadState(statesObject, 'defaultDrawerState');
           }
           else {
             console.log('drawer was wide -> we made it narrow');
             // we're at the lg breakpoint and the drawer is wide
             // make the drawer narrow at the lg breakpoint, which is a unique state
             transitionWideToNarrowAtLarge();
-            narrowDrawerStateAtLarge();
+            loadState(statesObject, 'narrowDrawerStateAtLarge');
           }
         } 
         else if (window.matchMedia('(min-width: 768px)').matches) {
           console.log('at medium breakpoint');
           if (drawerIsNarrowAtMedium) {
             console.log('drawer was narrow -> we made it open');
-            openDrawerState();
+            loadState(statesObject, 'openDrawerState');
             transitionNarrowToOpenAtMedium();
           } else {
             console.log('drawer was open -> we made it narrow');
-            defaultDrawerState();
+            loadState(statesObject, 'defaultDrawerState');
             transitionOpenToNarrowAtMedium();
           }
         }
         else if (drawerIsHiddenAtMobile) {
           console.log('below medium breakpoint');
           console.log('drawer was off-screen -> we moved it on-screen');
-          openDrawerState();
+          loadState(statesObject, 'openDrawerState');
           transitionOutToIn();
         } else {
           console.log('below medium breakpoint');
           console.log('drawer was (most likely) on-screen -> we moved it off-screen');
-          defaultDrawerState();
+          loadState(statesObject, 'defaultDrawerState');
           transitionInToOut();
         }
       })
@@ -243,13 +333,14 @@ function handleLgBreakpoint(breakpoint) {
   var drawerIsNarrowAtLarge = firstDrawer.classList.contains('drawer--narrow@lg');
 
   if ((breakpoint.matches) && (drawerIsNarrowAtLarge)) {
-    defaultDrawerState();
+    loadState(statesObject, 'defaultDrawerState');
   }
   else if (breakpoint.matches) {
-    narrowDrawerStateAtLarge();
+    loadState(statesObject, 'narrowDrawerStateAtLarge');
+    // narrowDrawerStateAtLarge();
   }
   else {
-    defaultDrawerState();
+    loadState(statesObject, 'defaultDrawerState');
   }
 }
 
