@@ -36,18 +36,6 @@ function loadState(stateObject, targetStateName) {
   }
 }
 
-// function loadState(stateName) {
-//   if (var stateObject = getItemByPropertyName(stateName)) {
-//     for (var i = stateObject.length - 1; i >= 0; i--) {
-//       if (var targetClass = stateObject[i]) {
-//         for (var i = targetClass.length - 1; i >= 0; i--) {
-//           changeClasses(, changeType, changeType[0])
-//       }
-//     }
-//   }
-// }
-
-
 var statesObject = {
   'defaultDrawerState' : {
     'drawer' : {
@@ -172,30 +160,151 @@ var statesObject = {
   }
 }
 
-function transitionNarrowToWide() {
-  changeClasses('drawer__title', 'add', 'drawer__title--animate-in');
-  changeClasses('drawer__title', 'remove', 'drawer__title--animate-out');
-  changeClasses('user__name', 'add', 'user__name--animate-in');
-  changeClasses('user__name', 'remove', 'user__name--animate-out');
-  changeClasses('drawer', 'add', 'drawer--animate-wide');
-  changeClasses('drawer', 'remove', 'drawer--animate-narrow');
-  changeClasses('subnav__link', 'add', 'subnav__link--animate-in');
-  changeClasses('subnav__link', 'remove', 'subnav__link--animate-out');
-  changeClasses('nav__text', 'add', 'nav__text--animate-in');
-  changeClasses('nav__text', 'remove', 'nav__text--animate-out');
+
+var transitionsObject = {
+  'transitionNarrowToWide' : {
+  'drawer__title' : {
+    'add' : 'drawer__title--animate-in',
+    'remove' : 'drawer__title--animate-out'
+  },
+  'user__name' : {
+    'add' : 'user__name--animate-in',
+    'remove' : 'user__name--animate-out'
+  },
+  'drawer' : {
+    'add' : 'drawer--animate-wide',
+    'remove' : 'drawer--animate-narrow'
+  },
+  'subnav__link' : {
+    'add' : 'subnav__link--animate-in',
+    'remove' : 'subnav__link--animate-out'
+  },
+  'nav__text' : {
+    'add' : 'nav__text--animate-in',
+    'remove' : 'nav__text--animate-out'
+  }
+},
+'transitionWideToNarrow' : {
+  'drawer__title' : {
+    'add' : 'drawer__title--animate-out',
+    'remove' : 'drawer__title--animate-in'
+  },
+  'user__name' : {
+    'add' : 'user__name--animate-out',
+    'remove' : 'user__name--animate-in'
+  },
+  'drawer' : {
+    'add' : 'drawer--animate-narrow',
+    'remove' : 'drawer--animate-wide'
+  },
+  'subnav__link' : {
+    'add' : 'subnav__link--animate-out',
+    'remove' : 'subnav__link--animate-in'
+  },
+  'nav__text' : {
+    'add' : 'nav__text--animate-out',
+    'remove' : 'nav__text--animate-in'
+  }
+},
+'transitionOutToIn' : {
+  'toggle--drawer' : {
+    'add' : 'toggle--animate-in',
+    'remove' : 'toggle--animate-out'
+  },
+  'toggle--header' : {
+    'add' : 'toggle--animate-out',
+    'remove' : 'toggle--animate-in'
+  },
+  'drawer' : {
+    'add' : 'drawer--animate-in',
+    'remove' : 'drawer--animate-out'
+  }
+},
+'transitionInToOut' : {
+  'toggle--drawer' : {
+    'add' : 'toggle--animate-out',
+    'remove' : 'toggle--animate-in'
+  },
+  'toggle--header' : {
+    'add' : 'toggle--animate-in',
+    'remove' : 'toggle--animate-out'
+  },
+  'drawer' : {
+    'add' : 'drawer--animate-out',
+    'remove' : 'drawer--animate-in'
+  }
 }
-function transitionWideToNarrow() {
-  changeClasses('drawer__title', 'add', 'drawer__title--animate-out');
-  changeClasses('drawer__title', 'remove', 'drawer__title--animate-in');
-  changeClasses('user__name', 'add', 'user__name--animate-out');
-  changeClasses('user__name', 'remove', 'user__name--animate-in');
-  changeClasses('drawer', 'add', 'drawer--animate-narrow');
-  changeClasses('drawer', 'remove', 'drawer--animate-wide');
-  changeClasses('subnav__link', 'add', 'subnav__link--animate-out');
-  changeClasses('subnav__link', 'remove', 'subnav__link--animate-in');
-  changeClasses('nav__text', 'add', 'nav__text--animate-out');
-  changeClasses('nav__text', 'remove', 'nav__text--animate-in');
+// function transitionNarrowToWideAtLarge() {
+//   transitionNarrowToWide();
+//   'header' : {
+//     'add' : 'header--animate-narrow',
+//     'remove' : 'header--animate-wide'
+//   },
+//   'content' : {
+//     'add' : 'content--animate-narrow',
+//     'remove' : 'content--animate-wide'
+//   }
+// }
+
+// function transitionWideToNarrowAtLarge() {
+//   transitionWideToNarrow();
+//   'header' : {
+//     'add' : 'header--animate-wide',
+//     'remove' : 'header--animate-narrow'
+//   },
+//   'content' : {
+//     'add' : 'content--animate-wide',
+//     'remove' : 'content--animate-narrow'
+//   },
+// }
+
+// function transitionNarrowToOpenAtMedium() {
+//   transitionNarrowToWide();
+// }
+
+// function transitionOpenToNarrowAtMedium() {
+//   transitionWideToNarrow();
+// }
+
+// function transitionSmallToMedium() {
+//   transitionOutToIn();
+//   'header' : {
+//     'add' : 'header--animate-full-to-wide',
+//     'remove' : 'header--animate-wide header--animate-narrow'
+//   },
+//   'content' : {
+//     'add' : 'content--animate-full-to-wide',
+//     'remove' : 'content--animate-wide content--animate-narrow'
+//   },
+// }
+
 }
+
+// function transitionNarrowToWide() {
+//   changeClasses('drawer__title', 'add', 'drawer__title--animate-in');
+//   changeClasses('drawer__title', 'remove', 'drawer__title--animate-out');
+//   changeClasses('user__name', 'add', 'user__name--animate-in');
+//   changeClasses('user__name', 'remove', 'user__name--animate-out');
+//   changeClasses('drawer', 'add', 'drawer--animate-wide');
+//   changeClasses('drawer', 'remove', 'drawer--animate-narrow');
+//   changeClasses('subnav__link', 'add', 'subnav__link--animate-in');
+//   changeClasses('subnav__link', 'remove', 'subnav__link--animate-out');
+//   changeClasses('nav__text', 'add', 'nav__text--animate-in');
+//   changeClasses('nav__text', 'remove', 'nav__text--animate-out');
+// }
+
+// function transitionWideToNarrow() {
+//   changeClasses('drawer__title', 'add', 'drawer__title--animate-out');
+//   changeClasses('drawer__title', 'remove', 'drawer__title--animate-in');
+//   changeClasses('user__name', 'add', 'user__name--animate-out');
+//   changeClasses('user__name', 'remove', 'user__name--animate-in');
+//   changeClasses('drawer', 'add', 'drawer--animate-narrow');
+//   changeClasses('drawer', 'remove', 'drawer--animate-wide');
+//   changeClasses('subnav__link', 'add', 'subnav__link--animate-out');
+//   changeClasses('subnav__link', 'remove', 'subnav__link--animate-in');
+//   changeClasses('nav__text', 'add', 'nav__text--animate-out');
+//   changeClasses('nav__text', 'remove', 'nav__text--animate-in');
+// }
 
 function transitionNarrowToWideAtLarge() {
   transitionNarrowToWide();
@@ -221,23 +330,23 @@ function transitionOpenToNarrowAtMedium() {
   transitionWideToNarrow();
 }
 
-function transitionOutToIn() {
-  changeClasses('toggle--drawer', 'add', 'toggle--animate-in');
-  changeClasses('toggle--drawer', 'remove', 'toggle--animate-out');
-  changeClasses('toggle--header', 'add', 'toggle--animate-out');
-  changeClasses('toggle--header', 'remove', 'toggle--animate-in');
-  changeClasses('drawer', 'add', 'drawer--animate-in');
-  changeClasses('drawer', 'remove', 'drawer--animate-out');
-}
+// function transitionOutToIn() {
+//   changeClasses('toggle--drawer', 'add', 'toggle--animate-in');
+//   changeClasses('toggle--drawer', 'remove', 'toggle--animate-out');
+//   changeClasses('toggle--header', 'add', 'toggle--animate-out');
+//   changeClasses('toggle--header', 'remove', 'toggle--animate-in');
+//   changeClasses('drawer', 'add', 'drawer--animate-in');
+//   changeClasses('drawer', 'remove', 'drawer--animate-out');
+// }
 
-function transitionInToOut() {
-  changeClasses('toggle--drawer', 'add', 'toggle--animate-out');
-  changeClasses('toggle--drawer', 'remove', 'toggle--animate-in');
-  changeClasses('toggle--header', 'add', 'toggle--animate-in');
-  changeClasses('toggle--header', 'remove', 'toggle--animate-out');
-  changeClasses('drawer', 'add', 'drawer--animate-out');
-  changeClasses('drawer', 'remove', 'drawer--animate-in');
-}
+// function transitionInToOut() {
+//   changeClasses('toggle--drawer', 'add', 'toggle--animate-out');
+//   changeClasses('toggle--drawer', 'remove', 'toggle--animate-in');
+//   changeClasses('toggle--header', 'add', 'toggle--animate-in');
+//   changeClasses('toggle--header', 'remove', 'toggle--animate-out');
+//   changeClasses('drawer', 'add', 'drawer--animate-out');
+//   changeClasses('drawer', 'remove', 'drawer--animate-in');
+// }
 
 function transitionSmallToMedium() {
   transitionOutToIn();
@@ -312,12 +421,12 @@ function bindControl(controlName) {
           console.log('below medium breakpoint');
           console.log('drawer was off-screen -> we moved it on-screen');
           loadState(statesObject, 'openDrawerState');
-          transitionOutToIn();
+          loadState(transitionsObject, 'transitionOutToIn');
         } else {
           console.log('below medium breakpoint');
           console.log('drawer was (most likely) on-screen -> we moved it off-screen');
           loadState(statesObject, 'defaultDrawerState');
-          transitionInToOut();
+          loadState(transitionsObject, 'transitionInToOut');
         }
       })
     }
