@@ -17,8 +17,6 @@ function getItemByPropertyName(haystack, propertyName) {
   }
 };
 
-
-
 function loadState(stateObject, targetStateName) {
   // grab the target state object from the master states object
   var targetState = getItemByPropertyName(stateObject, targetStateName);
@@ -120,8 +118,8 @@ var statesObject = {
   },
   'narrowDrawerStateAtLarge' : {
     'drawer' : {
-      'add' : 'drawer--moved-out drawer--narrow@md drawer--narrow@lg',
-      'remove' : 'drawer--moved-in drawer--wide@lg'
+      'add' : 'drawer--narrow@md drawer--narrow@lg',
+      'remove' : 'drawer--wide@lg'
     },
     'drawer__title' : {
       'add' : 'drawer__title--hidden@md drawer__title--hidden@lg',
@@ -160,31 +158,7 @@ var statesObject = {
   }
 }
 
-
-var transitionsObject = {
-  'transitionNarrowToWide' : {
-  'drawer__title' : {
-    'add' : 'drawer__title--animate-in',
-    'remove' : 'drawer__title--animate-out'
-  },
-  'user__name' : {
-    'add' : 'user__name--animate-in',
-    'remove' : 'user__name--animate-out'
-  },
-  'drawer' : {
-    'add' : 'drawer--animate-wide',
-    'remove' : 'drawer--animate-narrow'
-  },
-  'subnav__link' : {
-    'add' : 'subnav__link--animate-in',
-    'remove' : 'subnav__link--animate-out'
-  },
-  'nav__text' : {
-    'add' : 'nav__text--animate-in',
-    'remove' : 'nav__text--animate-out'
-  }
-},
-'transitionWideToNarrow' : {
+var transitionWideToNarrow = {
   'drawer__title' : {
     'add' : 'drawer__title--animate-out',
     'remove' : 'drawer__title--animate-in'
@@ -205,57 +179,139 @@ var transitionsObject = {
     'add' : 'nav__text--animate-out',
     'remove' : 'nav__text--animate-in'
   }
-},
-'transitionOutToIn' : {
-  'toggle--drawer' : {
-    'add' : 'toggle--animate-in',
-    'remove' : 'toggle--animate-out'
+}
+
+var transitionWideToNarrowAtLarge = {
+  'drawer__title' : {
+    'add' : 'drawer__title--animate-out',
+    'remove' : 'drawer__title--animate-in'
   },
-  'toggle--header' : {
-    'add' : 'toggle--animate-out',
-    'remove' : 'toggle--animate-in'
-  },
-  'drawer' : {
-    'add' : 'drawer--animate-in',
-    'remove' : 'drawer--animate-out'
-  }
-},
-'transitionInToOut' : {
-  'toggle--drawer' : {
-    'add' : 'toggle--animate-out',
-    'remove' : 'toggle--animate-in'
-  },
-  'toggle--header' : {
-    'add' : 'toggle--animate-in',
-    'remove' : 'toggle--animate-out'
+  'user__name' : {
+    'add' : 'user__name--animate-out',
+    'remove' : 'user__name--animate-in'
   },
   'drawer' : {
-    'add' : 'drawer--animate-out',
-    'remove' : 'drawer--animate-in'
+    'add' : 'drawer--animate-narrow',
+    'remove' : 'drawer--animate-wide'
+  },
+  'subnav__link' : {
+    'add' : 'subnav__link--animate-out',
+    'remove' : 'subnav__link--animate-in'
+  },
+  'nav__text' : {
+    'add' : 'nav__text--animate-out',
+    'remove' : 'nav__text--animate-in'
+  },
+  'header' : {
+    'add' : 'header--animate-wide',
+    'remove' : 'header--animate-narrow'
+  },
+  'content' : {
+    'add' : 'content--animate-wide',
+    'remove' : 'content--animate-narrow'
   }
 }
+
+var transitionNarrowToWide = {
+    'drawer__title' : {
+      'add' : 'drawer__title--animate-in',
+      'remove' : 'drawer__title--animate-out'
+    },
+    'user__name' : {
+      'add' : 'user__name--animate-in',
+      'remove' : 'user__name--animate-out'
+    },
+    'drawer' : {
+      'add' : 'drawer--animate-wide',
+      'remove' : 'drawer--animate-narrow'
+    },
+    'subnav__link' : {
+      'add' : 'subnav__link--animate-in',
+      'remove' : 'subnav__link--animate-out'
+    },
+    'nav__text' : {
+      'add' : 'nav__text--animate-in',
+      'remove' : 'nav__text--animate-out'
+    }
+}
+
+var transitionNarrowToWideAtLarge = {
+    'drawer__title' : {
+      'add' : 'drawer__title--animate-in',
+      'remove' : 'drawer__title--animate-out'
+    },
+    'user__name' : {
+      'add' : 'user__name--animate-in',
+      'remove' : 'user__name--animate-out'
+    },
+    'drawer' : {
+      'add' : 'drawer--animate-wide',
+      'remove' : 'drawer--animate-narrow'
+    },
+    'subnav__link' : {
+      'add' : 'subnav__link--animate-in',
+      'remove' : 'subnav__link--animate-out'
+    },
+    'nav__text' : {
+      'add' : 'nav__text--animate-in',
+      'remove' : 'nav__text--animate-out'
+    },
+  'header' : { 
+    'add' : 'header--animate-narrow',
+    'remove' : 'header--animate-wide'
+  },
+  'content' : { 
+    'add' : 'content--animate-narrow',
+    'remove' : 'content--animate-wide'
+  }
+}
+
+var transitionsObject = {
+  'transitionNarrowToOpenAtMedium' : transitionNarrowToWide,
+  'transitionOpenToNarrowAtMedium' : transitionWideToNarrow,
+  'transitionNarrowToWideAtLarge' : transitionNarrowToWideAtLarge,
+  'transitionWideToNarrow' : transitionNarrowToWide,
+  'transitionWideToNarrowAtLarge' : transitionWideToNarrowAtLarge,
+
+  'transitionOutToIn' : {
+    'toggle--drawer' : {
+      'add' : 'toggle--animate-in',
+      'remove' : 'toggle--animate-out'
+    },
+    'toggle--header' : {
+      'add' : 'toggle--animate-out',
+      'remove' : 'toggle--animate-in'
+    },
+    'drawer' : {
+      'add' : 'drawer--animate-in',
+      'remove' : 'drawer--animate-out'
+    }
+  },
+  'transitionInToOut' : {
+    'toggle--drawer' : {
+      'add' : 'toggle--animate-out',
+      'remove' : 'toggle--animate-in'
+    },
+    'toggle--header' : {
+      'add' : 'toggle--animate-in',
+      'remove' : 'toggle--animate-out'
+    },
+    'drawer' : {
+      'add' : 'drawer--animate-out',
+      'remove' : 'drawer--animate-in'
+    }
+  }
+}
+
+
 // function transitionNarrowToWideAtLarge() {
 //   transitionNarrowToWide();
-//   'header' : {
-//     'add' : 'header--animate-narrow',
-//     'remove' : 'header--animate-wide'
-//   },
-//   'content' : {
-//     'add' : 'content--animate-narrow',
-//     'remove' : 'content--animate-wide'
-//   }
+
 // }
 
 // function transitionWideToNarrowAtLarge() {
 //   transitionWideToNarrow();
-//   'header' : {
-//     'add' : 'header--animate-wide',
-//     'remove' : 'header--animate-narrow'
-//   },
-//   'content' : {
-//     'add' : 'content--animate-wide',
-//     'remove' : 'content--animate-narrow'
-//   },
+
 // }
 
 // function transitionNarrowToOpenAtMedium() {
@@ -268,93 +324,11 @@ var transitionsObject = {
 
 // function transitionSmallToMedium() {
 //   transitionOutToIn();
-//   'header' : {
-//     'add' : 'header--animate-full-to-wide',
-//     'remove' : 'header--animate-wide header--animate-narrow'
-//   },
-//   'content' : {
-//     'add' : 'content--animate-full-to-wide',
-//     'remove' : 'content--animate-wide content--animate-narrow'
-//   },
+//   changeClasses('header', 'add', 'header--animate-full-to-wide');
+//   changeClasses('header', 'remove', 'header--animate-wide header--animate-narrow');
+//   changeClasses('content', 'add', 'content--animate-full-to-wide');
+//   changeClasses('content', 'remove', 'content--animate-wide content--animate-narrow');  
 // }
-
-}
-
-// function transitionNarrowToWide() {
-//   changeClasses('drawer__title', 'add', 'drawer__title--animate-in');
-//   changeClasses('drawer__title', 'remove', 'drawer__title--animate-out');
-//   changeClasses('user__name', 'add', 'user__name--animate-in');
-//   changeClasses('user__name', 'remove', 'user__name--animate-out');
-//   changeClasses('drawer', 'add', 'drawer--animate-wide');
-//   changeClasses('drawer', 'remove', 'drawer--animate-narrow');
-//   changeClasses('subnav__link', 'add', 'subnav__link--animate-in');
-//   changeClasses('subnav__link', 'remove', 'subnav__link--animate-out');
-//   changeClasses('nav__text', 'add', 'nav__text--animate-in');
-//   changeClasses('nav__text', 'remove', 'nav__text--animate-out');
-// }
-
-// function transitionWideToNarrow() {
-//   changeClasses('drawer__title', 'add', 'drawer__title--animate-out');
-//   changeClasses('drawer__title', 'remove', 'drawer__title--animate-in');
-//   changeClasses('user__name', 'add', 'user__name--animate-out');
-//   changeClasses('user__name', 'remove', 'user__name--animate-in');
-//   changeClasses('drawer', 'add', 'drawer--animate-narrow');
-//   changeClasses('drawer', 'remove', 'drawer--animate-wide');
-//   changeClasses('subnav__link', 'add', 'subnav__link--animate-out');
-//   changeClasses('subnav__link', 'remove', 'subnav__link--animate-in');
-//   changeClasses('nav__text', 'add', 'nav__text--animate-out');
-//   changeClasses('nav__text', 'remove', 'nav__text--animate-in');
-// }
-
-function transitionNarrowToWideAtLarge() {
-  transitionNarrowToWide();
-  changeClasses('header', 'add', 'header--animate-narrow');
-  changeClasses('header', 'remove', 'header--animate-wide');
-  changeClasses('content', 'add', 'content--animate-narrow');
-  changeClasses('content', 'remove', 'content--animate-wide');
-}
-
-function transitionWideToNarrowAtLarge() {
-  transitionWideToNarrow();
-  changeClasses('header', 'add', 'header--animate-wide');
-  changeClasses('header', 'remove', 'header--animate-narrow');
-  changeClasses('content', 'add', 'content--animate-wide');
-  changeClasses('content', 'remove', 'content--animate-narrow');
-}
-
-function transitionNarrowToOpenAtMedium() {
-  transitionNarrowToWide();
-}
-
-function transitionOpenToNarrowAtMedium() {
-  transitionWideToNarrow();
-}
-
-// function transitionOutToIn() {
-//   changeClasses('toggle--drawer', 'add', 'toggle--animate-in');
-//   changeClasses('toggle--drawer', 'remove', 'toggle--animate-out');
-//   changeClasses('toggle--header', 'add', 'toggle--animate-out');
-//   changeClasses('toggle--header', 'remove', 'toggle--animate-in');
-//   changeClasses('drawer', 'add', 'drawer--animate-in');
-//   changeClasses('drawer', 'remove', 'drawer--animate-out');
-// }
-
-// function transitionInToOut() {
-//   changeClasses('toggle--drawer', 'add', 'toggle--animate-out');
-//   changeClasses('toggle--drawer', 'remove', 'toggle--animate-in');
-//   changeClasses('toggle--header', 'add', 'toggle--animate-in');
-//   changeClasses('toggle--header', 'remove', 'toggle--animate-out');
-//   changeClasses('drawer', 'add', 'drawer--animate-out');
-//   changeClasses('drawer', 'remove', 'drawer--animate-in');
-// }
-
-function transitionSmallToMedium() {
-  transitionOutToIn();
-  changeClasses('header', 'add', 'header--animate-full-to-wide');
-  changeClasses('header', 'remove', 'header--animate-wide header--animate-narrow');
-  changeClasses('content', 'add', 'content--animate-full-to-wide');
-  changeClasses('content', 'remove', 'content--animate-wide content--animate-narrow');  
-}
 
 // e.g. changeClasses('nav', 'add', 'hidden--until-@md')
 function changeClasses(targetClassName, changeType, classNamesToChange) {
@@ -394,14 +368,15 @@ function bindControl(controlName) {
             console.log('drawer was narrow -> we made it wide');
             // we're at the lg breakpoint and the drawer is narrow
             // make the drawer wide at the lg breakpoint, which is the default state
-            transitionNarrowToWideAtLarge();
+            loadState(transitionsObject, 'transitionNarrowToWideAtLarge');
             loadState(statesObject, 'defaultDrawerState');
           }
           else {
             console.log('drawer was wide -> we made it narrow');
             // we're at the lg breakpoint and the drawer is wide
             // make the drawer narrow at the lg breakpoint, which is a unique state
-            transitionWideToNarrowAtLarge();
+            // transitionWideToNarrowAtLarge();
+            loadState(transitionsObject, 'transitionWideToNarrowAtLarge');
             loadState(statesObject, 'narrowDrawerStateAtLarge');
           }
         } 
@@ -410,11 +385,11 @@ function bindControl(controlName) {
           if (drawerIsNarrowAtMedium) {
             console.log('drawer was narrow -> we made it open');
             loadState(statesObject, 'openDrawerState');
-            transitionNarrowToOpenAtMedium();
+            loadState(transitionsObject, 'transitionNarrowToOpenAtMedium');
           } else {
             console.log('drawer was open -> we made it narrow');
             loadState(statesObject, 'defaultDrawerState');
-            transitionOpenToNarrowAtMedium();
+            loadState(transitionsObject, 'transitionOpenToNarrowAtMedium');
           }
         }
         else if (drawerIsHiddenAtMobile) {
@@ -441,12 +416,16 @@ function handleLgBreakpoint(breakpoint) {
   var firstDrawer = document.getElementsByClassName('drawer')[0];
   var drawerIsNarrowAtLarge = firstDrawer.classList.contains('drawer--narrow@lg');
 
+  loadState(statesObject, 'defaultDrawerState');
   if ((breakpoint.matches) && (drawerIsNarrowAtLarge)) {
+    console.log('transitioned into large and drawer was narrow');
+    console.log('change the drawer into its default state');
     loadState(statesObject, 'defaultDrawerState');
   }
   else if (breakpoint.matches) {
-    loadState(statesObject, 'narrowDrawerStateAtLarge');
-    // narrowDrawerStateAtLarge();
+    console.log('transitioned into large and drawer was wide');
+    console.log('change the drawer into its default state');
+    loadState(statesObject, 'defaultDrawerState');
   }
   else {
     loadState(statesObject, 'defaultDrawerState');
@@ -456,11 +435,15 @@ function handleLgBreakpoint(breakpoint) {
 function handleMdBreakpoint(breakpoint) {
   var firstDrawer = document.getElementsByClassName('drawer')[0];
   var drawerIsNarrowAtMedium = firstDrawer.classList.contains('drawer--narrow@md');
-
+  loadState(statesObject, 'defaultDrawerState');
   if ((breakpoint.matches) && (drawerIsNarrowAtMedium)) {
     console.log('transitioned to medium state and it is narrow');
-    defaultDrawerState();
-    transitionSmallToMedium();
+    loadState(statesObject, 'defaultDrawerState');
+    loadState(transitionsObject, 'transitionOutToIn');
+  }
+  else if ((breakpoint.matches)) {
+    console.log('transitioned to medium state and it is open');
+    loadState(statesObject, 'openDrawerState');
   }
 }
 
