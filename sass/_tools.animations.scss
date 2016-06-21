@@ -269,6 +269,30 @@
   }
 }
 
+@keyframes user--animate--in {
+  0% {
+    transform: translateX(-$drawer-width--wide);
+  }
+  85% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes user--animate-out {
+  0% {
+    transform: translateX(0);
+  }
+  85% {
+    transform: translateX(-$drawer-width--wide);
+  }
+  100% {
+    transform: translateX(-$drawer-width--wide);
+  }
+}
+
 .user {
   &--animate-wide {
     animation-timing-function: ease-in-out;
@@ -281,6 +305,18 @@
     animation-fill-mode: backwards;
     animation-duration: 1000ms;
     animation-name: user--animate-narrow;
+  }
+  &--animate-in {
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: forwards;
+    animation-duration: 500ms;
+    animation-name: user--animate-in;
+  }
+  &--animate-out {
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: forwards;
+    animation-duration: 500ms;
+    animation-name: user--animate-out;
   }
   &--animate-out-wide {
     animation-timing-function: ease-in-out;
