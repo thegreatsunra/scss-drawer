@@ -19,8 +19,8 @@ var statesObject = {
       'remove' : 'subnav__link--hidden@lg'
     },
     'user' : {
-      'add' : 'user--narrow@md user--wide@lg',
-      'remove' : 'user--narrow@lg'
+      'add' : 'user--moved-out user--narrow@md user--wide@lg',
+      'remove' : 'user--moved-in user--narrow@lg'
     },
     'user__name' : {
       'add' : 'user__name--hidden@md',
@@ -48,8 +48,8 @@ var statesObject = {
   },
   'openDrawerState' : {
     'drawer' : {
-      'add' : 'drawer--moved-in drawer--narrow@lg js-drawer--open',
-      'remove' : 'drawer--moved-out drawer--narrow@md drawer--wide@lg js-drawer--default js-drawer--narrow@lg'
+      'remove' : 'drawer--moved-out drawer--narrow@md drawer--narrow@lg js-drawer--default js-drawer--narrow@lg',
+      'add' : 'drawer--moved-in drawer--wide@lg js-drawer--open'
     },
     'drawer__title' : {
       'remove' : 'drawer__title--hidden@md drawer__title--hidden@lg drawer__title--visible@lg'
@@ -63,8 +63,8 @@ var statesObject = {
       'add' : 'subnav__link--visible@lg'
     },
     'user' : {
-      'remove' : 'user--narrow@md user--narrow@lg',
-      'add' : 'user--wide@lg'
+      'remove' : 'user--moved-out user--narrow@md user--narrow@lg',
+      'add' : 'user--moved-in user--wide@lg'
     },
     'user__name' : {
       'remove' : 'user__name--hidden@md',
@@ -278,6 +278,10 @@ var transitionsObject = {
     'drawer' : {
       'add' : 'drawer--animate-in',
       'remove' : 'drawer--animate-out drawer--animate-narrow drawer--animate-wide'
+    },
+    'user' : {
+      'add' : 'user--animate-in',
+      'remove' : 'user--animate-out user--animate-narrow user--animate-wide'
     }
   },
   'transitionOutToInAtMedium' : {
@@ -312,6 +316,10 @@ var transitionsObject = {
     'drawer' : {
       'add' : 'drawer--animate-out',
       'remove' : 'drawer--animate-in drawer--animate-narrow drawer--animate-wide'
+    },
+    'user' : {
+      'add' : 'user--animate-out',
+      'remove' : 'user--animate-in user--animate-narrow user--animate-wide'
     }
   },
   'transitionInToOutAtNarrow' : {
@@ -360,7 +368,7 @@ var transitionsObject = {
       'remove' : 'toggle--animate-in toggle--animate-out'
     },
     'user' : {
-      'remove' : 'user--animate-wide user--animate-narrow user--animate-out-wide'
+      'remove' : 'user--animate-in user--animate-out user--animate-wide user--animate-narrow user--animate-out-wide'
     },
     'user__name' : {
       'remove' : 'user__name--animate-in user__name--animate-out'
