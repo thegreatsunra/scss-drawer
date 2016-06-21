@@ -418,8 +418,8 @@
   0% {
     left: 0;
   }
-  85% {
-    left: $drawer-width--narrow;
+  50% {
+    left: 0;
   }
   100% {
     left: $drawer-width--narrow;
@@ -442,8 +442,8 @@
   &--animate-full-to-wide {
     animation-timing-function: ease-in-out;
     animation-fill-mode: forwards;
-    animation-duration: 500s;
-    // animation-name: header--animate-full-to-wide; // WTF
+    animation-duration: 500ms;
+    animation-name: header--animate-full-to-wide;
   }
 }
 
@@ -479,8 +479,8 @@
   0% {
     margin-left: 0;
   }
-  85% {
-    margin-left: $drawer-width--narrow;
+  50% {
+    margin-left: 0;
   }
   100% {
     margin-left: $drawer-width--narrow;
