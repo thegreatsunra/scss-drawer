@@ -96,7 +96,7 @@
   }
   &--animate-out {
     animation-timing-function: ease-in-out;
-    animation-fill-mode: backwards;
+    animation-fill-mode: forwards;
     animation-duration: 500ms;
     animation-name: drawer--animate-out;
   }
@@ -174,7 +174,7 @@
     animation-name: drawer__title--animate-in;
   }
   &--animate-out {
-    animation-fill-mode: backwards;
+    animation-fill-mode: forwards;
     animation-duration: 1000ms;
     animation-name: drawer__title--animate-out;
   }
@@ -302,7 +302,7 @@
   }
   &--animate-narrow {
     animation-timing-function: ease-in-out;
-    animation-fill-mode: backwards;
+    animation-fill-mode: forwards;
     animation-duration: 1000ms;
     animation-name: user--animate-narrow;
   }
@@ -320,7 +320,7 @@
   }
   &--animate-out-wide {
     animation-timing-function: ease-in-out;
-    animation-fill-mode: backwards;
+    animation-fill-mode: forwards;
     animation-duration: 1000ms;
     animation-name: user--animate-out-wide;
   }
@@ -375,7 +375,7 @@
     animation-name: user__name--animate-in;
   }
   &--animate-out {
-    animation-fill-mode: backwards;
+    animation-fill-mode: forwards;
     animation-duration: 1000ms;
     animation-name: user__name--animate-out;
   }
@@ -429,7 +429,7 @@
     animation-name: nav__text--animate-in;
   }
   &--animate-out {
-    animation-fill-mode: backwards;
+    animation-fill-mode: forwards;
     animation-duration: 1000ms;
     animation-name: nav__text--animate-out;
 
@@ -488,7 +488,7 @@
 
   }
   &--animate-out {
-    animation-fill-mode: backwards;
+    animation-fill-mode: forwards;
     animation-duration: 1000ms;
     animation-name: subnav__link--animate-out;
   }
