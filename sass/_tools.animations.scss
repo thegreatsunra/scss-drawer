@@ -96,7 +96,7 @@
   }
   &--animate-out {
     animation-timing-function: ease-in-out;
-    animation-fill-mode: backwards;
+    animation-fill-mode: forwards;
     animation-duration: 500ms;
     animation-name: drawer--animate-out;
   }
@@ -174,7 +174,7 @@
     animation-name: drawer__title--animate-in;
   }
   &--animate-out {
-    animation-fill-mode: backwards;
+    animation-fill-mode: forwards;
     animation-duration: 1000ms;
     animation-name: drawer__title--animate-out;
   }
@@ -216,6 +216,113 @@
     animation-fill-mode: forwards;
     animation-duration: 500ms;
     animation-name: toggle--animate-out;
+  }
+}
+
+@mixin user--wide-state {
+  width: $drawer-width--wide;
+}
+
+@mixin user--narrow-state {
+  width: $drawer-width--narrow;
+}
+
+@keyframes user--animate-wide {
+  0% {
+    @include user--narrow-state;
+  }
+  33% {
+    @include user--wide-state;
+  }
+  100% {
+    @include user--wide-state;
+  }
+}
+
+@keyframes user--animate-narrow {
+  0% {
+    @include user--wide-state;
+  }
+  33% {
+    @include user--wide-state;
+  }
+  66% {
+    @include user--narrow-state;
+  }
+  100% {
+    @include user--narrow-state;
+  }
+}
+
+@keyframes user--animate-out-wide {
+  0% {
+    transform: translateX(0);
+    @include user--narrow-state;
+  }
+  85% {
+    @include user--narrow-state;
+    transform: translateX(-$drawer-width--wide);
+  }
+  100% {
+    @include user--wide-state;
+    transform: translateX(-$drawer-width--wide);
+  }
+}
+
+@keyframes user--animate--in {
+  0% {
+    transform: translateX(-$drawer-width--wide);
+  }
+  85% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes user--animate-out {
+  0% {
+    transform: translateX(0);
+  }
+  85% {
+    transform: translateX(-$drawer-width--wide);
+  }
+  100% {
+    transform: translateX(-$drawer-width--wide);
+  }
+}
+
+.user {
+  &--animate-wide {
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: forwards;
+    animation-duration: 1000ms;
+    animation-name: user--animate-wide;
+  }
+  &--animate-narrow {
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: forwards;
+    animation-duration: 1000ms;
+    animation-name: user--animate-narrow;
+  }
+  &--animate-in {
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: forwards;
+    animation-duration: 500ms;
+    animation-name: user--animate-in;
+  }
+  &--animate-out {
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: forwards;
+    animation-duration: 500ms;
+    animation-name: user--animate-out;
+  }
+  &--animate-out-wide {
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: forwards;
+    animation-duration: 1000ms;
+    animation-name: user--animate-out-wide;
   }
 }
 
@@ -268,7 +375,7 @@
     animation-name: user__name--animate-in;
   }
   &--animate-out {
-    animation-fill-mode: backwards;
+    animation-fill-mode: forwards;
     animation-duration: 1000ms;
     animation-name: user__name--animate-out;
   }
@@ -322,7 +429,7 @@
     animation-name: nav__text--animate-in;
   }
   &--animate-out {
-    animation-fill-mode: backwards;
+    animation-fill-mode: forwards;
     animation-duration: 1000ms;
     animation-name: nav__text--animate-out;
 
@@ -381,7 +488,7 @@
 
   }
   &--animate-out {
-    animation-fill-mode: backwards;
+    animation-fill-mode: forwards;
     animation-duration: 1000ms;
     animation-name: subnav__link--animate-out;
   }

@@ -5,8 +5,31 @@
   left: 0;
   bottom: 0;
   height: $user-height;
-  width: 100%;
-  border-top: 1px solid rgba(0, 0, 0, 0.15);;
+  width: $drawer-width--wide;
+  // width: 100%;
+  border-top: 1px solid rgba(0, 0, 0, 0.15);
+  &--moved-in {
+    transform: translateX(0);
+  }
+  &--moved-out {
+    transform: translateX(-$drawer-width--wide);
+  }
+  @include mq($from: md) {
+    &--narrow\@md {
+      width: $drawer-width--narrow;
+    }
+    &--moved-in\@md {
+      transform: translateX(0);
+    }
+  }
+  @include mq($from: lg) {
+    &--wide\@lg {
+      width: $drawer-width--wide;
+    }
+    &--narrow\@lg {
+      width: $drawer-width--narrow;
+    }
+  }
 }
 
 .user__name {

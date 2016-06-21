@@ -18,6 +18,10 @@ var statesObject = {
       'add' : 'subnav__link--hidden@md subnav__link--visible@lg',
       'remove' : 'subnav__link--hidden@lg'
     },
+    'user' : {
+      'add' : 'user--moved-out user--narrow@md user--wide@lg',
+      'remove' : 'user--moved-in user--narrow@lg'
+    },
     'user__name' : {
       'add' : 'user__name--hidden@md',
       'remove' : 'user__name--hidden@lg'
@@ -44,8 +48,8 @@ var statesObject = {
   },
   'openDrawerState' : {
     'drawer' : {
-      'add' : 'drawer--moved-in drawer--narrow@lg js-drawer--open',
-      'remove' : 'drawer--moved-out drawer--narrow@md drawer--wide@lg js-drawer--default js-drawer--narrow@lg'
+      'remove' : 'drawer--moved-out drawer--narrow@md drawer--narrow@lg js-drawer--default js-drawer--narrow@lg',
+      'add' : 'drawer--moved-in drawer--wide@lg js-drawer--open'
     },
     'drawer__title' : {
       'remove' : 'drawer__title--hidden@md drawer__title--hidden@lg drawer__title--visible@lg'
@@ -57,6 +61,10 @@ var statesObject = {
     'subnav__link' : {
       'remove' : 'subnav__link--hidden@md subnav__link--hidden@lg',
       'add' : 'subnav__link--visible@lg'
+    },
+    'user' : {
+      'remove' : 'user--moved-out user--narrow@md user--narrow@lg',
+      'add' : 'user--moved-in user--wide@lg'
     },
     'user__name' : {
       'remove' : 'user__name--hidden@md',
@@ -99,6 +107,10 @@ var statesObject = {
       'add' : 'subnav__link--hidden@md subnav__link--hidden@lg',
       'remove' : 'subnav__link--visible@lg'
     },
+    'user' : {
+      'remove' : 'user--wide@lg',
+      'add' : 'user--narrow@lg'
+    },
     'user__name' : {
       'add' : 'user__name--hidden@md user__name--hidden@lg',
     },
@@ -129,6 +141,10 @@ var transitionOpenToNarrowAtMedium = {
     'add' : 'drawer__title--animate-out',
     'remove' : 'drawer__title--animate-in'
   },
+  'user' : {
+    'add' : 'user--animate-narrow',
+    'remove' : 'user--animate-wide user--animate-out-wide'
+  },
   'user__name' : {
     'add' : 'user__name--animate-out',
     'remove' : 'user__name--animate-in'
@@ -151,6 +167,10 @@ var transitionWideToNarrowAtLarge = {
   'drawer__title' : {
     'add' : 'drawer__title--animate-out',
     'remove' : 'drawer__title--animate-in'
+  },
+  'user' : {
+    'add' : 'user--animate-narrow',
+    'remove' : 'user--animate-wide user--animate-out-wide'
   },
   'user__name' : {
     'add' : 'user__name--animate-out',
@@ -183,6 +203,10 @@ var transitionNarrowToWide = {
       'add' : 'drawer__title--animate-in',
       'remove' : 'drawer__title--animate-out'
     },
+  'user' : {
+    'add' : 'user--animate-wide',
+    'remove' : 'user--animate-narrow user--animate-out-wide'
+  },
     'user__name' : {
       'add' : 'user__name--animate-in',
       'remove' : 'user__name--animate-out'
@@ -205,6 +229,10 @@ var transitionNarrowToWideAtLarge = {
   'drawer__title' : {
     'add' : 'drawer__title--animate-in',
     'remove' : 'drawer__title--animate-out'
+  },
+  'user' : {
+    'add' : 'user--animate-wide',
+    'remove' : 'user--animate-narrow user--animate-out-wide'
   },
   'user__name' : {
     'add' : 'user__name--animate-in',
@@ -250,6 +278,10 @@ var transitionsObject = {
     'drawer' : {
       'add' : 'drawer--animate-in',
       'remove' : 'drawer--animate-out drawer--animate-narrow drawer--animate-wide'
+    },
+    'user' : {
+      'add' : 'user--animate-in',
+      'remove' : 'user--animate-out user--animate-narrow user--animate-wide'
     }
   },
   'transitionOutToInAtMedium' : {
@@ -284,6 +316,10 @@ var transitionsObject = {
     'drawer' : {
       'add' : 'drawer--animate-out',
       'remove' : 'drawer--animate-in drawer--animate-narrow drawer--animate-wide'
+    },
+    'user' : {
+      'add' : 'user--animate-out',
+      'remove' : 'user--animate-in user--animate-narrow user--animate-wide'
     }
   },
   'transitionInToOutAtNarrow' : {
@@ -299,6 +335,10 @@ var transitionsObject = {
     'drawer__title' : {
       'add' : 'drawer__title--animate-in',
       'remove' : 'drawer__title--animate-out'
+    },
+    'user' : {
+      'add' : 'user--animate-out-wide',
+      'remove' : 'user--animate-wide user--animate-narrow'
     },
     'user__name' : {
       'add' : 'user__name--animate-in',
@@ -326,6 +366,9 @@ var transitionsObject = {
     },
     'toggle' : {
       'remove' : 'toggle--animate-in toggle--animate-out'
+    },
+    'user' : {
+      'remove' : 'user--animate-in user--animate-out user--animate-wide user--animate-narrow user--animate-out-wide'
     },
     'user__name' : {
       'remove' : 'user__name--animate-in user__name--animate-out'
