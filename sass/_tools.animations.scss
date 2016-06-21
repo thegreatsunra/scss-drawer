@@ -57,6 +57,21 @@
   }
 }
 
+@keyframes drawer--animate-out-wide {
+  0% {
+    transform: translateX(0);
+    width: $drawer-width--narrow;
+  }
+  85% {
+    width: $drawer-width--narrow;
+    transform: translateX(-$drawer-width--wide);
+  }
+  100% {
+    width: $drawer-width--wide;
+    transform: translateX(-$drawer-width--wide);
+  }
+}
+
 @keyframes drawer--animate-narrow {
   0% {
     width: $drawer-width--wide;
@@ -96,6 +111,12 @@
     animation-fill-mode: forwards;
     animation-duration: 1000ms;
     animation-name: drawer--animate-wide;
+  }
+  &--animate-out-wide {
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: forwards;
+    animation-duration: 1000ms;
+    animation-name: drawer--animate-out-wide;
   }
 }
 
