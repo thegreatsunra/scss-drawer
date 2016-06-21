@@ -10,6 +10,7 @@
 }
 
 .user__name {
+  @include user__name--in-state;
   &--hidden {
     @include out-state;
   }
