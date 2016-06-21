@@ -87,12 +87,12 @@
   }
   &--animate-narrow {
     animation-fill-mode: forwards;
-    animation-duration: 1s;
+    animation-duration: 1000ms;
     animation-name: drawer--animate-narrow;
   }
   &--animate-wide {
     animation-fill-mode: forwards;
-    animation-duration: 1s;
+    animation-duration: 1000ms;
     animation-name: drawer--animate-wide;
   }
 }
@@ -147,12 +147,12 @@
 .drawer__title {
   &--animate-in {
     animation-fill-mode: forwards;
-    animation-duration: 1s;
+    animation-duration: 1000ms;
     animation-name: drawer__title--animate-in;
   }
   &--animate-out {
     animation-fill-mode: backwards;
-    animation-duration: 1s;
+    animation-duration: 1000ms;
     animation-name: drawer__title--animate-out;
   }
 }
@@ -241,12 +241,12 @@
 .user__name {
   &--animate-in {
     animation-fill-mode: forwards;
-    animation-duration: 1s;
+    animation-duration: 1000ms;
     animation-name: user__name--animate-in;
   }
   &--animate-out {
     animation-fill-mode: backwards;
-    animation-duration: 1s;
+    animation-duration: 1000ms;
     animation-name: user__name--animate-out;
   }
 }
@@ -295,12 +295,12 @@
 .nav__text {
   &--animate-in {
     animation-fill-mode: forwards;
-    animation-duration: 1s;
+    animation-duration: 1000ms;
     animation-name: nav__text--animate-in;
   }
   &--animate-out {
     animation-fill-mode: backwards;
-    animation-duration: 1s;
+    animation-duration: 1000ms;
     animation-name: nav__text--animate-out;
 
   }
@@ -353,13 +353,13 @@
 .subnav__link {
   &--animate-in {
     animation-fill-mode: forwards;
-    animation-duration: 1s;
+    animation-duration: 1000ms;
     animation-name: subnav__link--animate-in;
 
   }
   &--animate-out {
     animation-fill-mode: backwards;
-    animation-duration: 1s;
+    animation-duration: 1000ms;
     animation-name: subnav__link--animate-out;
   }
 }
@@ -406,12 +406,12 @@
 .header {
   &--animate-wide {
     animation-fill-mode: forwards;
-    animation-duration: 1s;
+    animation-duration: 1000ms;
     animation-name: header--animate-wide;
   }
   &--animate-narrow {
     animation-fill-mode: forwards;
-    animation-duration: 1s;
+    animation-duration: 1000ms;
     animation-name: header--animate-narrow;
   }
   &--animate-full-to-wide {
@@ -465,12 +465,12 @@
 .content {
   &--animate-wide {
     animation-fill-mode: forwards;
-    animation-duration: 1s;
+    animation-duration: 1000ms;
     animation-name: content--animate-wide;
   }
   &--animate-narrow {
     animation-fill-mode: forwards;
-    animation-duration: 1s;
+    animation-duration: 1000ms;
     animation-name: content--animate-narrow;
   }
   &--animate-full-to-wide {
