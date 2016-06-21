@@ -1,6 +1,6 @@
 {
   "name": "scss-drawer",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Animated navigation drawer in Sass and vanilla JavaScript",
   "authors": [
     "Dane Petersen"
@@ -28,6 +28,7 @@
     "browser-sync": "^2.13.0",
     "del": "^2.2.0",
     "gulp": "^3.9.1",
+    "gulp-eslint": "^2.0.0",
     "gulp-sass": "^2.3.2"
   }
 }
