@@ -412,6 +412,7 @@ function bindControl(controlName) {
         var drawerIsAtDefaultState = firstDrawer.classList.contains('js-drawer--default');
         // var drawerIsNarrowAtMedium = firstDrawer.classList.contains('drawer--narrow@md');
         // var drawerIsHiddenAtMobile = firstDrawer.classList.contains('drawer--moved-out');
+        loadState(transitionsObject, 'removeAllTransitions');
         if ((window.matchMedia('(min-width: 1024px)').matches) && (drawerIsAtDefaultState)) {
           console.log('@lg - drawer default so narrow it');
           loadState(transitionsObject, 'transitionWideToNarrowAtLarge');
@@ -452,48 +453,47 @@ document.addEventListener('DOMContentLoaded', function(event) {
 });
 
 function handleMdBreakpoint(breakpoint) {
+  console.log('@md breakpoint - removing all transitions');
+  loadState(transitionsObject, 'removeAllTransitions');
   var firstDrawer = document.getElementsByClassName('drawer')[0];
   var drawerIsAtDefaultState = firstDrawer.classList.contains('js-drawer--default');
   if (breakpoint.matches) {
     console.log('entered @md');
     if (drawerIsAtDefaultState) {
-      console.log('drawer is at default so keep it at default');
-      loadState(statesObject, 'defaultDrawerState');
-      loadState(transitionsObject, 'transitionOutToIn');
-    }
-    else {
-      console.log('drawer is open so keep it open');
-      loadState(statesObject, 'openDrawerState');
-      // loadState(transitionsObject, 'transitionInToOut');
+      console.log('drawer was at default');
+      loadState(transitionsObject, 'transitionOutToInAtMedium')
     }
   } else {
     console.log('exited @md');
     if (drawerIsAtDefaultState) {
-      console.log('drawer is at default so keep it at default');
-      loadState(statesObject, 'defaultDrawerState');
-      loadState(transitionsObject, 'transitionInToOut');
-    } else {
-      console.log('drawer is open so keep it open');
-      loadState(statesObject, 'openDrawerState');
+      console.log('drawer was at default');
+      loadState(transitionsObject, 'transitionInToOutAtNarrow');
     }
   }
 }
 
 function handleLgBreakpoint(breakpoint) {
+  console.log('@lg breakpoint - removing all transitions');
+  loadState(transitionsObject, 'removeAllTransitions');
   var firstDrawer = document.getElementsByClassName('drawer')[0];
   var drawerIsAtNarrowAtLargeState = firstDrawer.classList.contains('js-drawer--narrow@lg');
+  var drawerIsOpen = firstDrawer.classList.contains('js-drawer--open');
   if (breakpoint.matches) {
-  } else {
-    console.log('exited @lg');
-    if (drawerIsAtNarrowAtLargeState) {
-      console.log('drawer is narrow at large to switch to default state');
+    console.log('entered @lg');
+    if (drawerIsOpen) {
+      console.log('drawer is open so keep it open');
       loadState(statesObject, 'defaultDrawerState');
-      // loadState(transitionsObject, 'transi');
-    } else {
-      console.log('drawer is open so collapse it');
-          loadState(transitionsObject, 'transitionOpenToNarrowAtMedium');
-          loadState(statesObject, 'defaultDrawerState');
     }
+    else {
+      console.log('drawer was narrow @md so open it @lg');
+      loadState(transitionsObject, 'transitionNarrowToWideAtLarge');
+      loadState(statesObject, 'defaultDrawerState');
+    }
+  }
+  else {
+    console.log('exited @lg');
+    loadState(transitionsObject, 'transitionOpenToNarrowAtMedium');
+    loadState(statesObject, 'defaultDrawerState');
   }
 }
 
