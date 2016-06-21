@@ -18,6 +18,10 @@ var statesObject = {
       'add' : 'subnav__link--hidden@md subnav__link--visible@lg',
       'remove' : 'subnav__link--hidden@lg'
     },
+    'user' : {
+      'add' : 'user--narrow@md user--wide@lg',
+      'remove' : 'user--narrow@lg'
+    },
     'user__name' : {
       'add' : 'user__name--hidden@md',
       'remove' : 'user__name--hidden@lg'
@@ -57,6 +61,10 @@ var statesObject = {
     'subnav__link' : {
       'remove' : 'subnav__link--hidden@md subnav__link--hidden@lg',
       'add' : 'subnav__link--visible@lg'
+    },
+    'user' : {
+      'remove' : 'user--narrow@md user--narrow@lg',
+      'add' : 'user--wide@lg'
     },
     'user__name' : {
       'remove' : 'user__name--hidden@md',
@@ -99,6 +107,10 @@ var statesObject = {
       'add' : 'subnav__link--hidden@md subnav__link--hidden@lg',
       'remove' : 'subnav__link--visible@lg'
     },
+    'user' : {
+      'remove' : 'user--wide@lg',
+      'add' : 'user--narrow@lg'
+    },
     'user__name' : {
       'add' : 'user__name--hidden@md user__name--hidden@lg',
     },
@@ -129,6 +141,10 @@ var transitionOpenToNarrowAtMedium = {
     'add' : 'drawer__title--animate-out',
     'remove' : 'drawer__title--animate-in'
   },
+  'user' : {
+    'add' : 'user--animate-narrow',
+    'remove' : 'user--animate-wide user--animate-out-wide'
+  },
   'user__name' : {
     'add' : 'user__name--animate-out',
     'remove' : 'user__name--animate-in'
@@ -151,6 +167,10 @@ var transitionWideToNarrowAtLarge = {
   'drawer__title' : {
     'add' : 'drawer__title--animate-out',
     'remove' : 'drawer__title--animate-in'
+  },
+  'user' : {
+    'add' : 'user--animate-narrow',
+    'remove' : 'user--animate-wide user--animate-out-wide'
   },
   'user__name' : {
     'add' : 'user__name--animate-out',
@@ -183,6 +203,10 @@ var transitionNarrowToWide = {
       'add' : 'drawer__title--animate-in',
       'remove' : 'drawer__title--animate-out'
     },
+  'user' : {
+    'add' : 'user--animate-wide',
+    'remove' : 'user--animate-narrow user--animate-out-wide'
+  },
     'user__name' : {
       'add' : 'user__name--animate-in',
       'remove' : 'user__name--animate-out'
@@ -205,6 +229,10 @@ var transitionNarrowToWideAtLarge = {
   'drawer__title' : {
     'add' : 'drawer__title--animate-in',
     'remove' : 'drawer__title--animate-out'
+  },
+  'user' : {
+    'add' : 'user--animate-wide',
+    'remove' : 'user--animate-narrow user--animate-out-wide'
   },
   'user__name' : {
     'add' : 'user__name--animate-in',
@@ -300,6 +328,10 @@ var transitionsObject = {
       'add' : 'drawer__title--animate-in',
       'remove' : 'drawer__title--animate-out'
     },
+    'user' : {
+      'add' : 'user--animate-out-wide',
+      'remove' : 'user--animate-wide user--animate-narrow'
+    },
     'user__name' : {
       'add' : 'user__name--animate-in',
       'remove' : 'user__name--animate-out'
@@ -326,6 +358,9 @@ var transitionsObject = {
     },
     'toggle' : {
       'remove' : 'toggle--animate-in toggle--animate-out'
+    },
+    'user' : {
+      'remove' : 'user--animate-wide user--animate-narrow user--animate-out-wide'
     },
     'user__name' : {
       'remove' : 'user__name--animate-in user__name--animate-out'

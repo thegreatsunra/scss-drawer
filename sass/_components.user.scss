@@ -5,8 +5,23 @@
   left: 0;
   bottom: 0;
   height: $user-height;
-  width: 100%;
-  border-top: 1px solid rgba(0, 0, 0, 0.15);;
+  width: $drawer-width--wide;
+  // width: 100%;
+  // border-top: 1px solid rgba(0, 0, 0, 0.15);
+  border-top: 1px solid red;
+  @include mq($from: md) {
+    &--narrow\@md {
+      width: $drawer-width--narrow;
+    }
+  }
+  @include mq($from: lg) {
+    &--wide\@lg {
+      width: $drawer-width--wide;
+    }
+    &--narrow\@lg {
+      width: $drawer-width--narrow;
+    }
+  }
 }
 
 .user__name {
