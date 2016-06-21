@@ -86,11 +86,13 @@
     animation-name: drawer--animate-out;
   }
   &--animate-narrow {
+    animation-timing-function: ease-in-out;
     animation-fill-mode: forwards;
     animation-duration: 1000ms;
     animation-name: drawer--animate-narrow;
   }
   &--animate-wide {
+    animation-timing-function: ease-in-out;
     animation-fill-mode: forwards;
     animation-duration: 1000ms;
     animation-name: drawer--animate-wide;
@@ -405,11 +407,13 @@
 
 .header {
   &--animate-wide {
+    animation-timing-function: ease-in-out;
     animation-fill-mode: forwards;
     animation-duration: 1000ms;
     animation-name: header--animate-wide;
   }
   &--animate-narrow {
+    animation-timing-function: ease-in-out;
     animation-fill-mode: forwards;
     animation-duration: 1000ms;
     animation-name: header--animate-narrow;
@@ -464,11 +468,13 @@
 
 .content {
   &--animate-wide {
+    animation-timing-function: ease-in-out;
     animation-fill-mode: forwards;
     animation-duration: 1000ms;
     animation-name: content--animate-wide;
   }
   &--animate-narrow {
+    animation-timing-function: ease-in-out;
     animation-fill-mode: forwards;
     animation-duration: 1000ms;
     animation-name: content--animate-narrow;
