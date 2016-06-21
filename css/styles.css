@@ -2586,6 +2586,17 @@ html {
   100% {
     width: 300px; } }
 
+@keyframes drawer--animate-out-wide {
+  0% {
+    transform: translateX(0);
+    width: 66px; }
+  85% {
+    width: 66px;
+    transform: translateX(-300px); }
+  100% {
+    width: 300px;
+    transform: translateX(-300px); } }
+
 @keyframes drawer--animate-narrow {
   0% {
     width: 300px; }
@@ -2609,14 +2620,22 @@ html {
   animation-name: drawer--animate-out; }
 
 .drawer--animate-narrow {
+  animation-timing-function: ease-in-out;
   animation-fill-mode: forwards;
-  animation-duration: 1s;
+  animation-duration: 1000ms;
   animation-name: drawer--animate-narrow; }
 
 .drawer--animate-wide {
+  animation-timing-function: ease-in-out;
   animation-fill-mode: forwards;
-  animation-duration: 1s;
+  animation-duration: 1000ms;
   animation-name: drawer--animate-wide; }
+
+.drawer--animate-out-wide {
+  animation-timing-function: ease-in-out;
+  animation-fill-mode: forwards;
+  animation-duration: 1000ms;
+  animation-name: drawer--animate-out-wide; }
 
 @keyframes drawer__title--animate-in {
   0% {
@@ -2673,12 +2692,12 @@ html {
 
 .drawer__title--animate-in {
   animation-fill-mode: forwards;
-  animation-duration: 1s;
+  animation-duration: 1000ms;
   animation-name: drawer__title--animate-in; }
 
 .drawer__title--animate-out {
   animation-fill-mode: backwards;
-  animation-duration: 1s;
+  animation-duration: 1000ms;
   animation-name: drawer__title--animate-out; }
 
 @keyframes toggle--animate-in {
@@ -2748,12 +2767,12 @@ html {
 
 .user__name--animate-in {
   animation-fill-mode: forwards;
-  animation-duration: 1s;
+  animation-duration: 1000ms;
   animation-name: user__name--animate-in; }
 
 .user__name--animate-out {
   animation-fill-mode: backwards;
-  animation-duration: 1s;
+  animation-duration: 1000ms;
   animation-name: user__name--animate-out; }
 
 @keyframes nav__text--animate-in {
@@ -2795,12 +2814,12 @@ html {
 
 .nav__text--animate-in {
   animation-fill-mode: forwards;
-  animation-duration: 1s;
+  animation-duration: 1000ms;
   animation-name: nav__text--animate-in; }
 
 .nav__text--animate-out {
   animation-fill-mode: backwards;
-  animation-duration: 1s;
+  animation-duration: 1000ms;
   animation-name: nav__text--animate-out; }
 
 @keyframes subnav__link--animate-in {
@@ -2850,12 +2869,12 @@ html {
 
 .subnav__link--animate-in {
   animation-fill-mode: forwards;
-  animation-duration: 1s;
+  animation-duration: 1000ms;
   animation-name: subnav__link--animate-in; }
 
 .subnav__link--animate-out {
   animation-fill-mode: backwards;
-  animation-duration: 1s;
+  animation-duration: 1000ms;
   animation-name: subnav__link--animate-out; }
 
 @keyframes header--animate-wide {
@@ -2879,25 +2898,28 @@ html {
 @keyframes header--animate-full-to-wide {
   0% {
     left: 0; }
-  85% {
-    left: 66px; }
+  50% {
+    left: 0; }
   100% {
     left: 66px; } }
 
 .header--animate-wide {
+  animation-timing-function: ease-in-out;
   animation-fill-mode: forwards;
-  animation-duration: 1s;
+  animation-duration: 1000ms;
   animation-name: header--animate-wide; }
 
 .header--animate-narrow {
+  animation-timing-function: ease-in-out;
   animation-fill-mode: forwards;
-  animation-duration: 1s;
+  animation-duration: 1000ms;
   animation-name: header--animate-narrow; }
 
 .header--animate-full-to-wide {
   animation-timing-function: ease-in-out;
   animation-fill-mode: forwards;
-  animation-duration: 500s; }
+  animation-duration: 500ms;
+  animation-name: header--animate-full-to-wide; }
 
 @keyframes content--animate-wide {
   0% {
@@ -2920,19 +2942,21 @@ html {
 @keyframes content--animate-full-to-wide {
   0% {
     margin-left: 0; }
-  85% {
-    margin-left: 66px; }
+  50% {
+    margin-left: 0; }
   100% {
     margin-left: 66px; } }
 
 .content--animate-wide {
+  animation-timing-function: ease-in-out;
   animation-fill-mode: forwards;
-  animation-duration: 1s;
+  animation-duration: 1000ms;
   animation-name: content--animate-wide; }
 
 .content--animate-narrow {
+  animation-timing-function: ease-in-out;
   animation-fill-mode: forwards;
-  animation-duration: 1s;
+  animation-duration: 1000ms;
   animation-name: content--animate-narrow; }
 
 .content--animate-full-to-wide {
@@ -3189,34 +3213,35 @@ a {
   width: 100%;
   border-top: 1px solid rgba(0, 0, 0, 0.15); }
 
-.user__name--hidden {
-  margin-top: 0;
-  margin-bottom: 0;
-  padding-top: 0;
-  padding-bottom: 0;
-  font-size: 0;
-  opacity: 0; }
-
-@media (min-width: 48em) {
-  .user__name--hidden\@md {
+.user__name {
+  font-size: 18px;
+  opacity: 1; }
+  .user__name--hidden {
     margin-top: 0;
     margin-bottom: 0;
     padding-top: 0;
     padding-bottom: 0;
     font-size: 0;
-    opacity: 0; } }
-
-@media (min-width: 64em) {
-  .user__name--visible\@lg {
-    font-size: 18px;
-    opacity: 1; }
-  .user__name--hidden\@lg {
-    margin-top: 0;
-    margin-bottom: 0;
-    padding-top: 0;
-    padding-bottom: 0;
-    font-size: 0;
-    opacity: 0; } }
+    opacity: 0; }
+  @media (min-width: 48em) {
+    .user__name--hidden\@md {
+      margin-top: 0;
+      margin-bottom: 0;
+      padding-top: 0;
+      padding-bottom: 0;
+      font-size: 0;
+      opacity: 0; } }
+  @media (min-width: 64em) {
+    .user__name--visible\@lg {
+      font-size: 18px;
+      opacity: 1; }
+    .user__name--hidden\@lg {
+      margin-top: 0;
+      margin-bottom: 0;
+      padding-top: 0;
+      padding-bottom: 0;
+      font-size: 0;
+      opacity: 0; } }
 
 .wrapper {
   padding-top: 61px;
