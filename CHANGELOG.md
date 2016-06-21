@@ -1,5 +1,8 @@
 # scss-drawer changelog
 
+### 0.2.1 - June 21, 2016
+* Generate `/dist` files
+
 ### 0.2.0 - June 21, 2016
 * Fix all states and state transitions
   * Implement toggle states at all breakpoints
