@@ -124,7 +124,7 @@ var statesObject = {
   }
 }
 
-var transitionWideToNarrow = {
+var transitionOpenToNarrowAtMedium = {
   'drawer__title' : {
     'add' : 'drawer__title--animate-out',
     'remove' : 'drawer__title--animate-in'
@@ -202,41 +202,40 @@ var transitionNarrowToWide = {
 }
 
 var transitionNarrowToWideAtLarge = {
-    'drawer__title' : {
-      'add' : 'drawer__title--animate-in',
-      'remove' : 'drawer__title--animate-out'
-    },
-    'user__name' : {
-      'add' : 'user__name--animate-in',
-      'remove' : 'user__name--animate-out'
-    },
-    'drawer' : {
-      'add' : 'drawer--animate-wide',
-      'remove' : 'drawer--animate-narrow drawer--animate-in drawer--animate-out'
-    },
-    'subnav__link' : {
-      'add' : 'subnav__link--animate-in',
-      'remove' : 'subnav__link--animate-out'
-    },
-    'nav__text' : {
-      'add' : 'nav__text--animate-in',
-      'remove' : 'nav__text--animate-out'
-    },
-    'header' : { 
-      'add' : 'header--animate-narrow',
-      'remove' : 'header--animate-wide'
-    },
-    'content' : { 
-      'add' : 'content--animate-narrow',
-      'remove' : 'content--animate-wide'
-    }
+  'drawer__title' : {
+    'add' : 'drawer__title--animate-in',
+    'remove' : 'drawer__title--animate-out'
+  },
+  'user__name' : {
+    'add' : 'user__name--animate-in',
+    'remove' : 'user__name--animate-out'
+  },
+  'drawer' : {
+    'add' : 'drawer--animate-wide',
+    'remove' : 'drawer--animate-narrow drawer--animate-in drawer--animate-out'
+  },
+  'subnav__link' : {
+    'add' : 'subnav__link--animate-in',
+    'remove' : 'subnav__link--animate-out'
+  },
+  'nav__text' : {
+    'add' : 'nav__text--animate-in',
+    'remove' : 'nav__text--animate-out'
+  },
+  'header' : { 
+    'add' : 'header--animate-narrow',
+    'remove' : 'header--animate-wide'
+  },
+  'content' : { 
+    'add' : 'content--animate-narrow',
+    'remove' : 'content--animate-wide'
+  }
 }
 
 var transitionsObject = {
   'transitionNarrowToOpenAtMedium' : transitionNarrowToWide,
-  'transitionOpenToNarrowAtMedium' : transitionWideToNarrow,
+  'transitionOpenToNarrowAtMedium' : transitionOpenToNarrowAtMedium,
   'transitionNarrowToWideAtLarge' : transitionNarrowToWideAtLarge,
-  'transitionWideToNarrow' : transitionNarrowToWide,
   'transitionWideToNarrowAtLarge' : transitionWideToNarrowAtLarge,
 
   'transitionOutToIn' : {
@@ -253,6 +252,26 @@ var transitionsObject = {
       'remove' : 'drawer--animate-out drawer--animate-narrow drawer--animate-wide'
     }
   },
+  'transitionOutToInAtMedium' : {
+    'toggle--drawer' : {
+      'add' : 'toggle--animate-in',
+      'remove' : 'toggle--animate-out'
+    },
+    'toggle--header' : {
+      'add' : 'toggle--animate-out',
+      'remove' : 'toggle--animate-in'
+    },
+    'drawer' : {
+      'add' : 'drawer--animate-in',
+      'remove' : 'drawer--animate-out drawer--animate-narrow drawer--animate-wide'
+    },
+    'header' : {
+      'add' : 'header--animate-full-to-wide'
+    },
+    'content' : {
+      'add' : 'content--animate-full-to-wide'
+    }
+  },
   'transitionInToOut' : {
     'toggle--drawer' : {
       'add' : 'toggle--animate-out',
@@ -265,6 +284,71 @@ var transitionsObject = {
     'drawer' : {
       'add' : 'drawer--animate-out',
       'remove' : 'drawer--animate-in drawer--animate-narrow drawer--animate-wide'
+    }
+  },
+  'transitionInToOutAtNarrow' : {
+    'toggle--drawer' : {
+      'add' : 'toggle--animate-out',
+      'remove' : 'toggle--animate-in'
+    },
+    'toggle--header' : {
+      'add' : 'toggle--animate-in',
+      'remove' : 'toggle--animate-out'
+    },
+
+    'drawer__title' : {
+      'add' : 'drawer__title--animate-in',
+      'remove' : 'drawer__title--animate-out'
+    },
+    'user__name' : {
+      'add' : 'user__name--animate-in',
+      'remove' : 'user__name--animate-out'
+    },
+    'drawer' : {
+      'add' : 'drawer--animate-out-wide',
+      'remove' : 'drawer--animate-in'
+    },
+    'subnav__link' : {
+      'add' : 'subnav__link--animate-in',
+      'remove' : 'subnav__link--animate-out'
+    },
+    'nav__text' : {
+      'add' : 'nav__text--animate-in',
+      'remove' : 'nav__text--animate-out'
+    }
+    // 'header' : { 
+    //   'add' : 'header--animate-narrow',
+    //   'remove' : 'header--animate-wide'
+    // },
+    // 'content' : { 
+    //   'add' : 'content--animate-narrow',
+    //   'remove' : 'content--animate-wide'
+    // }
+  },
+  'removeAllTransitions' : {
+    'drawer' : {
+      'remove' : 'drawer--animate-in drawer--animate-out drawer--animate-narrow drawer--animate-wide drawer--animate-out-wide'
+    },
+    'drawer__title' : {
+      'remove' : 'drawer__title--animate-in drawer__title--animate-out'
+    },
+    'toggle' : {
+      'remove' : 'toggle--animate-in toggle--animate-out'
+    },
+    'user__name' : {
+      'remove' : 'user__name--animate-in user__name--animate-out'
+    },
+    'nav__text' : {
+      'remove' : 'nav__text--animate-in nav__text--animate-out'
+    },
+    'subnav__link' : {
+      'remove' : 'subnav__link--animate-in subnav__link--animate-out'
+    },
+    'header' : {
+      'remove' : 'header--animate-wide header--animate-narrow header--animate-full-to-wide'
+    },
+    'content' : {
+      'remove' : 'content--animate-wide content--animate-narrow content--animate-full-to-wide'
     }
   }
 }
