@@ -2615,7 +2615,7 @@ html {
 
 .drawer--animate-out {
   animation-timing-function: ease-in-out;
-  animation-fill-mode: backwards;
+  animation-fill-mode: forwards;
   animation-duration: 500ms;
   animation-name: drawer--animate-out; }
 
@@ -2696,7 +2696,7 @@ html {
   animation-name: drawer__title--animate-in; }
 
 .drawer__title--animate-out {
-  animation-fill-mode: backwards;
+  animation-fill-mode: forwards;
   animation-duration: 1000ms;
   animation-name: drawer__title--animate-out; }
 
@@ -2727,6 +2727,81 @@ html {
   animation-fill-mode: forwards;
   animation-duration: 500ms;
   animation-name: toggle--animate-out; }
+
+@keyframes user--animate-wide {
+  0% {
+    width: 66px; }
+  33% {
+    width: 300px; }
+  100% {
+    width: 300px; } }
+
+@keyframes user--animate-narrow {
+  0% {
+    width: 300px; }
+  33% {
+    width: 300px; }
+  66% {
+    width: 66px; }
+  100% {
+    width: 66px; } }
+
+@keyframes user--animate-out-wide {
+  0% {
+    transform: translateX(0);
+    width: 66px; }
+  85% {
+    width: 66px;
+    transform: translateX(-300px); }
+  100% {
+    width: 300px;
+    transform: translateX(-300px); } }
+
+@keyframes user--animate--in {
+  0% {
+    transform: translateX(-300px); }
+  85% {
+    transform: translateX(0); }
+  100% {
+    transform: translateX(0); } }
+
+@keyframes user--animate-out {
+  0% {
+    transform: translateX(0); }
+  85% {
+    transform: translateX(-300px); }
+  100% {
+    transform: translateX(-300px); } }
+
+.user--animate-wide {
+  animation-timing-function: ease-in-out;
+  animation-fill-mode: forwards;
+  animation-duration: 1000ms;
+  animation-name: user--animate-wide; }
+
+.user--animate-narrow {
+  animation-timing-function: ease-in-out;
+  animation-fill-mode: forwards;
+  animation-duration: 1000ms;
+  animation-name: user--animate-narrow; }
+
+.user--animate-in {
+  animation-timing-function: ease-in-out;
+  animation-fill-mode: forwards;
+  animation-duration: 500ms;
+  animation-name: user--animate-in; }
+
+.user--animate-out {
+  animation-timing-function: ease-in-out;
+  animation-fill-mode: forwards;
+  animation-duration: 500ms;
+  animation-name: user--animate-out; }
+
+.user--animate-out-wide {
+  animation-timing-function: ease-in-out;
+  animation-fill-mode: forwards;
+  animation-duration: 1000ms;
+  animation-name: user--animate-out-wide; }
 
 @keyframes user__name--animate-in {
   0% {
@@ -2771,7 +2846,7 @@ html {
   animation-name: user__name--animate-in; }
 
 .user__name--animate-out {
-  animation-fill-mode: backwards;
+  animation-fill-mode: forwards;
   animation-duration: 1000ms;
   animation-name: user__name--animate-out; }
 
@@ -2818,7 +2893,7 @@ html {
   animation-name: nav__text--animate-in; }
 
 .nav__text--animate-out {
-  animation-fill-mode: backwards;
+  animation-fill-mode: forwards;
   animation-duration: 1000ms;
   animation-name: nav__text--animate-out; }
 
@@ -2873,7 +2948,7 @@ html {
   animation-name: subnav__link--animate-in; }
 
 .subnav__link--animate-out {
-  animation-fill-mode: backwards;
+  animation-fill-mode: forwards;
   animation-duration: 1000ms;
   animation-name: subnav__link--animate-out; }
 
@@ -3210,8 +3285,22 @@ a {
   left: 0;
   bottom: 0;
   height: 61px;
-  width: 100%;
+  width: 300px;
   border-top: 1px solid rgba(0, 0, 0, 0.15); }
+  .user--moved-in {
+    transform: translateX(0); }
+  .user--moved-out {
+    transform: translateX(-300px); }
+  @media (min-width: 48em) {
+    .user--narrow\@md {
+      width: 66px; }
+    .user--moved-in\@md {
+      transform: translateX(0); } }
+  @media (min-width: 64em) {
+    .user--wide\@lg {
+      width: 300px; }
+    .user--narrow\@lg {
+      width: 66px; } }
 
 .user__name {
   font-size: 18px;
